@@ -2,4 +2,42 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- All colors are sampled from Kinnect_UI PDF that was given as an example on how the UI should look like-->
+
+    <!-- Brand -->
+    <color name="kinnect_teal">#0B5F63</color>      <!-- primary: buttons, logo, active tab, links -->
+    <color name="teal_light">#E1EFEF</color>        <!-- unread notifications, selected chip -->
+
+    <!-- Backgrounds and surfaces -->
+    <color name="bg_cream">#F4F2EE</color>          <!-- Log in, Sign up and Menu background -->
+    <color name="pill_grey">#ECE9E2</color>         <!-- grey buttons, search bars, comment bubbles -->
+    <color name="divider">#E0E1DB</color>           <!-- thin lines between sections -->
+    <color name="input_border">#D6D1C8</color>      <!-- outline of text input boxes -->
+
+    <!-- Text -->
+    <color name="text_primary">#1C1B19</color>      <!-- names, headings, main text -->
+    <color name="text_secondary">#5E5A54</color>    <!-- subtitles such as "Tap to log in" -->
+    <color name="text_muted">#8A867F</color>        <!-- timestamps, hints -->
+
+    <!-- Accents -->
+    <color name="accent_orange">#B84A2A</color>     <!-- notification badges, "Just listed", password strength -->
+    <color name="love_red">#C9374A</color>          <!-- heart and love reaction -->
+    <color name="reaction_yellow">#C98612</color>   <!-- haha, wow, sad reactions -->
+    <color name="online_green">#2BA05C</color>      <!-- online dot on chat avatars -->
+
+    <!-- Dark and special screens -->
+    <color name="call_red">#C62827</color>          <!-- end call button -->
+    <color name="call_ring">#2E7579</color>         <!-- ring around the caller's avatar -->
+    <color name="camera_black">#121212</color>      <!-- Camera and Story editor background -->
+    <color name="scrim">#4D000000</color>           <!-- 30% black overlay behind the reaction picker -->
+
+    <!-- Avatar circles (initials) -->
+    <color name="avatar_purple">#7A4E7F</color>
+    <color name="avatar_green">#2F6B4F</color>
+    <color name="avatar_indigo">#4B4F8E</color>
+    <color name="avatar_maroon">#9B3D4F</color>
+    <color name="avatar_brown">#8A5A2C</color>
+    <color name="avatar_olive">#6C5B2F</color>
+    <color name="avatar_blue">#3F6E8C</color>
 </resources>
