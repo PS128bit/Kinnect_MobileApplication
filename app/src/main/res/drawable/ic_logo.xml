@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Kinnect logo: three interlocking white rings, rebuilt from logo.png as a vector
+    so it stays sharp at any size.
+    - Splash: shown large on the teal background
+    - Log in: shown inside a small teal rounded square
+    White by default; android:tint can recolour it if ever needed.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="240"
+    android:viewportHeight="240">
+    <!-- Top ring -->
+    <path
+        android:pathData="M54.5,86.5 a65,65 0 1,0 130,0 a65,65 0 1,0 -130,0"
+        android:strokeColor="@color/white"
+        android:strokeWidth="20" />
+    <!-- Bottom-left ring -->
+    <path
+        android:pathData="M17,152.5 a65,65 0 1,0 130,0 a65,65 0 1,0 -130,0"
+        android:strokeColor="@color/white"
+        android:strokeWidth="20" />
+    <!-- Bottom-right ring -->
+    <path
+        android:pathData="M92,152.5 a65,65 0 1,0 130,0 a65,65 0 1,0 -130,0"
+        android:strokeColor="@color/white"
+        android:strokeWidth="20" />
+</vector>
