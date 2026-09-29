@@ -1,9 +1,43 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.I230853" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+    <!--
+        Kinnect app theme.
+        - AppCompat
+        - Light mode only, because the Kinnect design in PDF says it has no dark mode.
+        - NoActionBar, because every screen draws its own top bar.
+    -->
+    <style name="Base.Theme.I230853" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Brand colors used by default widgets -->
+        <item name="colorPrimary">@color/kinnect_teal</item>
+        <item name="colorPrimaryDark">@color/kinnect_teal</item>
+        <!-- Text cursor, CheckBox tick and RadioButton dot -->
+        <item name="colorAccent">@color/kinnect_teal</item>
+
+        <!-- Default screen background and text colors -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+        <!-- White status and navigation bars with dark icons -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+        <!-- Stop the phone from forcing dark colors on the app -->
+        <item name="android:forceDarkAllowed" tools:targetApi="29">false</item>
+
+        <!-- Every Button uses the plain Kinnect style below -->
+        <item name="buttonStyle">@style/KinnectButton</item>
     </style>
 
     <style name="Theme.I230853" parent="Base.Theme.I230853" />
+
+    <!-- Plain button: normal-case text and no shadow, matching the design -->
+    <style name="KinnectButton" parent="Widget.AppCompat.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
 </resources>
