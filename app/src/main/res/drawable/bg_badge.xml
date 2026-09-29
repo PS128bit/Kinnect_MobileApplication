@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notification counter badge: orange circle with a white ring
+     so it stands out where it overlaps an icon -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/accent_orange" />
+    <stroke android:width="2dp" android:color="@color/white" />
+</shape>
