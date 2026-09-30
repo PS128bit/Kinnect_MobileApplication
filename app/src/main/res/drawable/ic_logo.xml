@@ -4,7 +4,7 @@
     so it stays sharp at any size.
     - Splash: shown large on the teal background
     - Log in: shown inside a small teal rounded square
-    White by default; android:tint can recolour it if ever needed.
+    White by default; android:tint can recolor it if ever needed.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="96dp"
