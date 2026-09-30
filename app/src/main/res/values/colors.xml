@@ -42,5 +42,5 @@
     <color name="avatar_blue">#3F6E8C</color>
 
     <color name="card_border">#E4E0D8</color>       <!-- lighter outline of white cards (Recent login) -->
-
+    <color name="dash_grey">#A09F9B</color>         <!-- dashed ring of the profile-photo placeholder (Sign up) -->
 </resources>

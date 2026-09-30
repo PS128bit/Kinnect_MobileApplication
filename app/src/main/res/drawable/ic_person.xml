@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Outline person (head + shoulders) for the empty profile photo, 24dp -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Head -->
+    <path
+        android:pathData="M8,8a4,4 0,1 0,8 0a4,4 0,1 0,-8 0"
+        android:strokeWidth="1.6"
+        android:strokeColor="#FF000000" />
+    <!-- Shoulders -->
+    <path
+        android:pathData="M4.5,20.5C4.5,16.6 7.9,14 12,14C16.1,14 19.5,16.6 19.5,20.5"
+        android:strokeLineCap="round"
+        android:strokeWidth="1.6"
+        android:strokeColor="#FF000000" />
+</vector>

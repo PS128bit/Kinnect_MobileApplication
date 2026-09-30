@@ -30,4 +30,36 @@
     <string name="create_new_account">Create new account</string>
     <string name="footer_kinnect_from_smd">Kinnect · from SMD</string>
 
+    <!-- This is for the THIRD SCREEN -->
+
+    <!-- 03 · Sign up -->
+    <string name="create_account">Create account</string>
+    <string name="step_2_of_3">Step 2 of 3</string>
+    <string name="cd_back">Back</string>
+    <string name="signup_heading">What\'s your name and\nbirthday?</string>
+    <string name="cd_add_profile_photo">Add profile photo</string>
+    <string name="first_name">First name</string>
+    <string name="demo_first_name">Jacob</string>
+    <string name="last_name">Last name</string>
+    <string name="demo_last_name">West</string>
+    <string name="birthday">Birthday</string>
+    <string name="cd_birthday_info">Why we ask for your birthday</string>
+    <string name="day">Day</string>
+    <string name="demo_day">14</string>
+    <string name="month">Month</string>
+    <string name="demo_month">Mar</string>
+    <string name="year">Year</string>
+    <string name="demo_year">2004</string>
+    <string name="gender">Gender</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="custom">Custom</string>
+    <string name="email">Email</string>
+    <string name="new_password">New password</string>
+    <string name="demo_signup_password">kinnect123</string>
+    <string name="password_strength_medium">Medium</string>
+    <string name="agree_terms">I agree to the Kinnect Terms and Privacy Policy.</string>
+    <string name="already_have_account">Already have an account?</string>
+
+
 </resources>
