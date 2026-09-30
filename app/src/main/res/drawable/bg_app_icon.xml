@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teal rounded square (22dp corners) behind the logo on Log in, like an app icon tile -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/kinnect_teal" />
+    <corners android:radius="22dp" />
+</shape>

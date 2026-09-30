@@ -1,12 +1,33 @@
 <resources>
     <string name="app_name">Kinnect</string>
 
-    <!--This is for the first screen also known as Splash, It just shows the logo with green background -->
+    <!--This is for the FIRST SCREEN also known as Splash, It just shows the logo with green background -->
 
     <!-- 01 · Splash -->
     <string name="wordmark">kinnect</string>
     <string name="splash_from">from</string>
     <string name="splash_smd">SMD</string>
     <string name="cd_kinnect_logo">Kinnect logo</string>
+
+    <!-- Now for the SECOND SCREEN known as Log In -->
+
+    <!-- 02 · Log in -->
+    <string name="language_english_uk">English (UK)</string>
+    <string name="cd_change_language">Change language</string>
+    <string name="recent_login">Recent login</string>
+    <string name="demo_user_initials">JW</string>
+    <string name="demo_user_name">Jacob West</string>
+    <string name="tap_to_log_in">Tap to log in</string>
+    <string name="badge_count_2">2</string>
+    <string name="cd_more_options">More options</string>
+    <string name="login_email_label">Mobile number or email</string>
+    <string name="demo_email">jacob.west@mail.com</string>
+    <string name="login_password_label">Password</string>
+    <string name="demo_password">kinnect2026</string>
+    <string name="cd_show_password">Show password</string>
+    <string name="log_in">Log in</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="create_new_account">Create new account</string>
+    <string name="footer_kinnect_from_smd">Kinnect · from SMD</string>
 
 </resources>

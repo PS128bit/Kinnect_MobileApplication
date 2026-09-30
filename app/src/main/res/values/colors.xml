@@ -40,4 +40,7 @@
     <color name="avatar_brown">#8A5A2C</color>
     <color name="avatar_olive">#6C5B2F</color>
     <color name="avatar_blue">#3F6E8C</color>
+
+    <color name="card_border">#E4E0D8</color>       <!-- lighter outline of white cards (Recent login) -->
+
 </resources>
