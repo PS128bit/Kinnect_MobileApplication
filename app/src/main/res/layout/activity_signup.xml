@@ -1,10 +1,641 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+    03 · Sign up
+    Same structure as Log in: a ScrollView around a vertical LinearLayout so the long form scrolls on small phones and in landscape.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_cream"
+    android:fillViewport="true"
     tools:context=".SignupActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!-- Top bar: back arrow, "Create account" title, "Step 2 of 3" on the right -->
+        <LinearLayout
+            android:id="@+id/ll_signup_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- 40dp touch area (accessibility) with 10dp padding, so the visible
+                 arrow stays 20dp. Negative margin lines the arrow up with the page edge. -->
+            <ImageView
+                android:id="@+id/iv_signup_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="-14dp"
+                android:contentDescription="@string/cd_back"
+                android:padding="10dp"
+                android:src="@drawable/ic_back"
+                app:tint="@color/text_primary" />
+
+            <!-- layout_weight="1": title takes the spare width, pushing "Step 2 of 3" right -->
+            <TextView
+                android:id="@+id/tv_signup_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="@string/create_account"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_signup_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_2_of_3"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Progress bar: 3 equal segments (layout_weight="1" each).
+             Teal = steps done (1 and 2), grey = step still to do (3). -->
+        <LinearLayout
+            android:id="@+id/ll_signup_progress"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/kinnect_teal" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/kinnect_teal" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/input_border" />
+        </LinearLayout>
+
+        <!-- Heading on the left, profile-photo placeholder on the right -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <!-- Photo placeholder: dashed circle + person icon, with an overlapping camera badge -->
+            <RelativeLayout
+                android:id="@+id/rl_signup_photo"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_alignParentEnd="true">
+
+                <ImageView
+                    android:id="@+id/iv_signup_photo"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:background="@drawable/bg_avatar_dashed"
+                    android:contentDescription="@string/cd_add_profile_photo"
+                    android:padding="20dp"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/text_secondary" />
+
+                <!-- Teal camera badge overlapping the circle's bottom-right edge
+                     (alignEnd + alignBottom on the circle) -->
+                <ImageView
+                    android:id="@+id/iv_signup_camera"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignEnd="@id/iv_signup_photo"
+                    android:layout_alignBottom="@id/iv_signup_photo"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/kinnect_teal"
+                    android:contentDescription="@string/cd_add_profile_photo"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_camera"
+                    app:tint="@color/white" />
+            </RelativeLayout>
+
+            <!-- "What's your name and birthday?" - fills the space left of the photo -->
+            <TextView
+                android:id="@+id/tv_signup_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:layout_toStartOf="@id/rl_signup_photo"
+                android:lineSpacingExtra="2dp"
+                android:text="@string/signup_heading"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- First name / Last name: two equal boxes side by side (layout_weight="1" each) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first_name"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:autofillHints="personGivenName"
+                    android:background="@null"
+                    android:inputType="textPersonName|textCapWords"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:text="@string/demo_first_name"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_name"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:autofillHints="personFamilyName"
+                    android:background="@null"
+                    android:inputType="textPersonName|textCapWords"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:text="@string/demo_last_name"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- "Birthday" label with an info icon -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/birthday"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_birthday_info"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/cd_birthday_info"
+                android:src="@drawable/ic_info"
+                app:tint="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Day / Month / Year: three equal "dropdown-look" boxes.
+             Static TextViews + chevron (a real Spinner needs an adapter, not covered in class). -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <!-- Day -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="13dp"
+                android:paddingEnd="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/day"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_birth_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/demo_day"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/text_primary" />
+            </LinearLayout>
+
+            <!-- Month -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="13dp"
+                android:paddingEnd="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/month"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_birth_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/demo_month"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/text_primary" />
+            </LinearLayout>
+
+            <!-- Year -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="13dp"
+                android:paddingEnd="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/year"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_birth_year"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/demo_year"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_chevron_down"
+                    app:tint="@color/text_primary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- "Gender" label -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/gender"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!--
+            Gender: RadioGroup = only one option can be selected (no Kotlin needed).
+            Each RadioButton:
+              - button="@null" hides the default circle
+              - drawableEnd="@drawable/radio_indicator" puts our selector circle on the right
+              - background="@drawable/bg_gender_option" gives a teal border when checked
+        -->
+        <RadioGroup
+            android:id="@+id/rg_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_gender_option"
+                android:button="@null"
+                android:drawableEnd="@drawable/radio_indicator"
+                android:paddingStart="13dp"
+                android:paddingEnd="12dp"
+                android:text="@string/female"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_gender_option"
+                android:button="@null"
+                android:checked="true"
+                android:drawableEnd="@drawable/radio_indicator"
+                android:paddingStart="13dp"
+                android:paddingEnd="12dp"
+                android:text="@string/male"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rb_custom"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_gender_option"
+                android:button="@null"
+                android:drawableEnd="@drawable/radio_indicator"
+                android:paddingStart="13dp"
+                android:paddingEnd="12dp"
+                android:text="@string/custom"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+        <!-- Email box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_input"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/et_signup_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:autofillHints="emailAddress"
+                android:background="@null"
+                android:inputType="textEmailAddress"
+                android:minHeight="0dp"
+                android:padding="0dp"
+                android:text="@string/demo_email"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- New password box: label + hidden password, eye on the right -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_input"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_password"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/et_signup_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:autofillHints="password"
+                    android:background="@null"
+                    android:inputType="textPassword"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:text="@string/demo_signup_password"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_signup_show_password"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/cd_show_password"
+                android:src="@drawable/ic_eye"
+                app:tint="@color/text_secondary" />
+        </LinearLayout>
+
+        <!-- Password strength: 3 equal bars (2 orange = medium) + "Medium" label -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/accent_orange" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/accent_orange" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/input_border" />
+
+            <TextView
+                android:id="@+id/tv_password_strength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="@string/password_strength_medium"
+                android:textColor="@color/accent_orange"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Terms checkbox: ticked teal automatically via colorAccent in our theme.
+             Small negative margin lines the box up with the page edge. -->
+        <CheckBox
+            android:id="@+id/cb_agree_terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-6dp"
+            android:layout_marginTop="7dp"
+            android:checked="true"
+            android:paddingStart="5dp"
+            android:text="@string/agree_terms"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
+
+        <!-- "Create account" button: teal pill -->
+        <Button
+            android:id="@+id/btn_signup_create"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_primary_button"
+            android:text="@string/create_account"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- "Already have an account? Log in" - only "Log in" is tappable -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_account"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_signup_log_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/log_in"
+                android:textColor="@color/kinnect_teal"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
