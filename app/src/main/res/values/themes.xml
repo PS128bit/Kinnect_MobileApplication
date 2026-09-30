@@ -40,4 +40,17 @@
         <item name="android:stateListAnimator">@null</item>
     </style>
 
+
+    <!--
+    SCREEN ONE
+    Splash-only theme
+-->
+    <style name="Theme.I230853.Splash" parent="Theme.I230853">
+        <item name="android:windowBackground">@color/kinnect_teal</item>
+        <item name="android:statusBarColor">@color/kinnect_teal</item>
+        <item name="android:navigationBarColor">@color/kinnect_teal</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+    </style>
+
 </resources>

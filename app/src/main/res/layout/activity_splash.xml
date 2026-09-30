@@ -1,10 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!--
+    01 · Splash
+    RelativeLayout (Lecture 03):
+      - logo + wordmark group uses layout_centerInParent (centred on screen)
+      - "from SMD" footer uses layout_alignParentBottom (pinned to the bottom)
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/kinnect_teal"
     tools:context=".SplashActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Logo and wordmark, centred together as one group -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- Three-ring Kinnect logo -->
+        <ImageView
+            android:id="@+id/iv_splash_logo"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:contentDescription="@string/cd_kinnect_logo"
+            android:src="@drawable/ic_logo" />
+
+        <!-- "kinnect" wordmark -->
+        <TextView
+            android:id="@+id/tv_splash_wordmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:letterSpacing="-0.02"
+            android:text="@string/wordmark"
+            android:textColor="@color/white"
+            android:textSize="46sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Footer: "from" above "SMD", pinned near the bottom -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!-- "from": small, slightly faded white -->
+        <TextView
+            android:id="@+id/tv_splash_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:text="@string/splash_from"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <!-- "SMD": bold with wide letter spacing -->
+        <TextView
+            android:id="@+id/tv_splash_smd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:letterSpacing="0.15"
+            android:text="@string/splash_smd"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

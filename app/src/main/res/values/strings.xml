@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Kinnect</string>
+
+    <!--This is for the first screen also known as Splash, It just shows the logo with green background -->
+
+    <!-- 01 · Splash -->
+    <string name="wordmark">kinnect</string>
+    <string name="splash_from">from</string>
+    <string name="splash_smd">SMD</string>
+    <string name="cd_kinnect_logo">Kinnect logo</string>
+
 </resources>
