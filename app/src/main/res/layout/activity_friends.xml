@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    SCREEN 14 · Friends
+    14 · Friends
     Header and top tab bar stay fixed at the top; the content below scrolls (ScrollView).
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -302,6 +302,488 @@
                     android:textColor="@color/kinnect_teal"
                     android:textSize="15sp" />
             </LinearLayout>
+
+            <!-- Friend request 1: name_sara_iqbal. Tapping the avatar or name opens their profile. -->
+            <RelativeLayout
+                android:id="@+id/rl_request_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:id="@+id/tv_request_avatar_1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_indigo"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_si"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <!-- How long ago, top-right -->
+                <TextView
+                    android:id="@+id/tv_request_time_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/time_3d"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_request_name_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_toStartOf="@id/tv_request_time_1"
+                    android:layout_toEndOf="@id/tv_request_avatar_1"
+                    android:maxLines="1"
+                    android:text="@string/name_sara_iqbal"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Mutual friends: two small overlapping avatar dots + count -->
+                <LinearLayout
+                    android:id="@+id/ll_request_mutual_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_request_name_1"
+                    android:layout_alignStart="@id/tv_request_name_1"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_indigo" />
+
+                    <!-- Negative margin = overlaps the first dot -->
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="-6dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_brown" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/mutual_8"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Confirm / Delete: two equal buttons (layout_weight="1") -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/ll_request_mutual_1"
+                    android:layout_alignStart="@id/tv_request_name_1"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_confirm_1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/kinnect_teal"
+                        android:padding="0dp"
+                        android:text="@string/confirm"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_delete_1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/pill_grey"
+                        android:padding="0dp"
+                        android:text="@string/delete"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Friend request 2: name_bilal_ahmed. Tapping the avatar or name opens their profile. -->
+            <RelativeLayout
+                android:id="@+id/rl_request_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp">
+
+                <TextView
+                    android:id="@+id/tv_request_avatar_2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_purple"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_ba"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <!-- How long ago, top-right -->
+                <TextView
+                    android:id="@+id/tv_request_time_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/time_1w"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_request_name_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_toStartOf="@id/tv_request_time_2"
+                    android:layout_toEndOf="@id/tv_request_avatar_2"
+                    android:maxLines="1"
+                    android:text="@string/name_bilal_ahmed"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Mutual friends: two small overlapping avatar dots + count -->
+                <LinearLayout
+                    android:id="@+id/ll_request_mutual_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_request_name_2"
+                    android:layout_alignStart="@id/tv_request_name_2"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_indigo" />
+
+                    <!-- Negative margin = overlaps the first dot -->
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="-6dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_brown" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/mutual_14"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Confirm / Delete: two equal buttons (layout_weight="1") -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/ll_request_mutual_2"
+                    android:layout_alignStart="@id/tv_request_name_2"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_confirm_2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/kinnect_teal"
+                        android:padding="0dp"
+                        android:text="@string/confirm"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_delete_2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/pill_grey"
+                        android:padding="0dp"
+                        android:text="@string/delete"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Friend request 3: name_noor_fatima. Tapping the avatar or name opens their profile. -->
+            <RelativeLayout
+                android:id="@+id/rl_request_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp">
+
+                <TextView
+                    android:id="@+id/tv_request_avatar_3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_green"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_nf"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <!-- How long ago, top-right -->
+                <TextView
+                    android:id="@+id/tv_request_time_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/time_2w"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_request_name_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_toStartOf="@id/tv_request_time_3"
+                    android:layout_toEndOf="@id/tv_request_avatar_3"
+                    android:maxLines="1"
+                    android:text="@string/name_noor_fatima"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Mutual friends: two small overlapping avatar dots + count -->
+                <LinearLayout
+                    android:id="@+id/ll_request_mutual_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_request_name_3"
+                    android:layout_alignStart="@id/tv_request_name_3"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_indigo" />
+
+                    <!-- Negative margin = overlaps the first dot -->
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="-6dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_brown" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/mutual_3"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Confirm / Delete: two equal buttons (layout_weight="1") -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/ll_request_mutual_3"
+                    android:layout_alignStart="@id/tv_request_name_3"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_confirm_3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/kinnect_teal"
+                        android:padding="0dp"
+                        android:text="@string/confirm"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_delete_3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/pill_grey"
+                        android:padding="0dp"
+                        android:text="@string/delete"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Friend request 4: name_daniyal_shah. Tapping the avatar or name opens their profile. -->
+            <RelativeLayout
+                android:id="@+id/rl_request_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp">
+
+                <TextView
+                    android:id="@+id/tv_request_avatar_4"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_maroon"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_ds"
+                    android:textColor="@color/white"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <!-- How long ago, top-right -->
+                <TextView
+                    android:id="@+id/tv_request_time_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/time_3w"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_request_name_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_toStartOf="@id/tv_request_time_4"
+                    android:layout_toEndOf="@id/tv_request_avatar_4"
+                    android:maxLines="1"
+                    android:text="@string/name_daniyal_shah"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Mutual friends: two small overlapping avatar dots + count -->
+                <LinearLayout
+                    android:id="@+id/ll_request_mutual_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_request_name_4"
+                    android:layout_alignStart="@id/tv_request_name_4"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_indigo" />
+
+                    <!-- Negative margin = overlaps the first dot -->
+                    <View
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="-6dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_brown" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/mutual_21"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Confirm / Delete: two equal buttons (layout_weight="1") -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_below="@id/ll_request_mutual_4"
+                    android:layout_alignStart="@id/tv_request_name_4"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_confirm_4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/kinnect_teal"
+                        android:padding="0dp"
+                        android:text="@string/confirm"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_delete_4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_small"
+                        android:backgroundTint="@color/pill_grey"
+                        android:padding="0dp"
+                        android:text="@string/delete"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Divider before the next section -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="22dp"
+                android:background="@color/divider" />
+
+            <TextView
+                android:id="@+id/tv_people_you_may_know"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/people_you_may_know"
+                android:textColor="@color/text_primary"
+                android:textSize="19sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
