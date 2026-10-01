@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teal "+" circle on "Create story", with a white ring where it overlaps the card -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/kinnect_teal" />
+    <stroke android:width="3dp" android:color="@color/white" />
+</shape>

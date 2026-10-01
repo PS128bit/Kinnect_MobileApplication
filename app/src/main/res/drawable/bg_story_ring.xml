@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ring around an avatar on a story card: teal outer ring with a white gap inside.
+     The coloured avatar circle sits inside it (the container has 4dp padding). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/white" />
+    <stroke android:width="2dp" android:color="@color/kinnect_teal" />
+</shape>

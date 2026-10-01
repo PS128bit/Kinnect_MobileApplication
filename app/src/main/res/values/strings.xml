@@ -61,5 +61,49 @@
     <string name="agree_terms">I agree to the Kinnect Terms and Privacy Policy.</string>
     <string name="already_have_account">Already have an account?</string>
 
+    <!-- SCREEN 04 : HOME  (Probably the most important one in this whole app) -->
+    <!-- Shared: people who appear on many screens -->
+    <string name="initials_lm">LM</string>
+    <string name="initials_of">OF</string>
+    <string name="initials_si">SI</string>
+    <string name="initials_ha">HA</string>
+    <string name="name_omar_farooq">Omar Farooq</string>
+    <string name="name_sara_iqbal">Sara Iqbal</string>
+    <string name="name_hamza_ali">Hamza Ali</string>
+
+    <!-- Shared: header and top tab bar -->
+    <string name="tab_home">Home</string>
+    <string name="tab_friends">Friends</string>
+    <string name="tab_marketplace">Marketplace</string>
+    <string name="tab_notifications">Notifications</string>
+    <string name="tab_menu">Menu</string>
+    <string name="cd_search">Search</string>
+    <string name="cd_chats">Chats</string>
+    <string name="badge_count_3">3</string>
+    <string name="badge_count_5">5</string>
+
+    <!-- 04 · Home -->
+    <string name="composer_prompt">What\'s on your mind, Jacob?</string>
+    <string name="cd_your_profile">Your profile</string>
+    <string name="cd_add_photo">Add photo</string>
+    <string name="create_story">Create story</string>
+    <string name="cd_story_1">Omar Farooq\'s story</string>
+    <string name="cd_story_2">Sara Iqbal\'s story</string>
+    <string name="cd_story_3">Hamza Ali\'s story</string>
+    <string name="post_author_line"><b>Lina Marsh</b> is at <b>Clifton Beach</b></string>
+    <string name="post_time_2h">2h ·</string>
+    <string name="cd_public">Public</string>
+    <string name="cd_hide_post">Hide post</string>
+    <string name="post_text_sunset">Sunset walk with the crew. Worth every grain of sand in my shoes.</string>
+    <string name="cd_post_photo">Post photo</string>
+    <string name="more_photos_4">+4</string>
+    <string name="post_reacted_by">Aisha and 1.2K others</string>
+    <string name="post_comment_share_counts">86 comments · 12 shares</string>
+    <string name="action_like">Like</string>
+    <string name="action_comment">Comment</string>
+    <string name="action_share">Share</string>
+
+
+
 
 </resources>

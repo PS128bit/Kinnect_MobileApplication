@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Like" reaction badge: teal circle with a white ring and a white thumbs-up.
+     All colours are inside the drawable, so it is used without any tint. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#0B5F63"
+        android:pathData="M1,12a11,11 0,1 0,22 0a11,11 0,1 0,-22 0"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="2" />
+    <!-- Material "thumb_up" (filled), shrunk to half size and centred -->
+    <group
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:translateX="6"
+        android:translateY="6">
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M1,21h4V9H1v12zM23,10c0,-1.1 -0.9,-2 -2,-2h-6.31l0.95,-4.57 0.03,-0.32c0,-0.41 -0.17,-0.79 -0.44,-1.06L14.17,1 7.59,7.59C7.22,7.95 7,8.45 7,9v10c0,1.1 0.9,2 2,2h9c0.83,0 1.54,-0.5 1.84,-1.22l3.02,-7.05c0.09,-0.23 0.14,-0.47 0.14,-0.73v-2z" />
+    </group>
+</vector>

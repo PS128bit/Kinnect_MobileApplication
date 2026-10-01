@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark fade at the bottom of a story card so the white name stays readable
+     on any photo. angle="270" = gradient runs from top (clear) to bottom (dark). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:endColor="#99000000"
+        android:startColor="#00000000" />
+</shape>

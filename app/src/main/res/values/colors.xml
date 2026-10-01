@@ -43,4 +43,8 @@
 
     <color name="card_border">#E4E0D8</color>       <!-- lighter outline of white cards (Recent login) -->
     <color name="dash_grey">#A09F9B</color>         <!-- dashed ring of the profile-photo placeholder (Sign up) -->
+
+    <color name="feed_band">#E6E3DA</color>         <!-- grey band between feed sections (Home) -->
+    <color name="photo_dim">#66000000</color>       <!-- 40% black over the "+4" photo -->
+
 </resources>
