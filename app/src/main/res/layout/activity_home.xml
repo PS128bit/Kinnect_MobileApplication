@@ -285,6 +285,274 @@
                 android:layout_height="8dp"
                 android:background="@color/feed_band" />
 
+            <!--
+                Stories row. HorizontalScrollView = the sideways version of ScrollView so the cards can be swiped left and right.
+                clipToPadding="false" lets cards scroll under the 16dp side padding.
+            -->
+            <HorizontalScrollView
+                android:id="@+id/hsv_stories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingStart="8dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="12dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--
+                        "Create story" card: opens the Camera.
+                        clipToOutline="true" cuts the light-teal top to the rounded corners.
+                    -->
+                    <RelativeLayout
+                        android:id="@+id/rl_create_story"
+                        android:layout_width="104dp"
+                        android:layout_height="176dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_create_story"
+                        android:clipToOutline="true"
+                        android:contentDescription="@string/create_story">
+
+                        <!-- Light-teal top part of the card -->
+                        <View
+                            android:id="@+id/v_create_story_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="118dp"
+                            android:background="@color/teal_light" />
+
+                        <!-- Your big avatar -->
+                        <TextView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="28dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/kinnect_teal"
+                            android:gravity="center"
+                            android:importantForAccessibility="no"
+                            android:text="@string/demo_user_initials"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <!-- "+" button overlapping the line between the teal top and the white bottom:
+                             118dp (line) - 15dp (half the button) = 103dp from the top -->
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="103dp"
+                            android:background="@drawable/bg_plus_button"
+                            android:importantForAccessibility="no"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_add"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="11dp"
+                            android:text="@string/create_story"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <!-- Story card: name_omar_farooq -->
+                    <RelativeLayout
+                        android:id="@+id/rl_story_1"
+                        android:layout_width="104dp"
+                        android:layout_height="176dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_story_card"
+                        android:clipToOutline="true"
+                        android:contentDescription="@string/cd_story_1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:importantForAccessibility="no"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_story_1" />
+
+                        <!-- Dark fade so the white name is readable -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="64dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/bg_story_scrim" />
+
+                        <!-- Avatar inside a teal ring (ring = container background, 4dp padding) -->
+                        <RelativeLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/bg_story_ring"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_green"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_of"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginBottom="9dp"
+                            android:maxLines="1"
+                            android:text="@string/name_omar_farooq"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <!-- Story card: name_sara_iqbal -->
+                    <RelativeLayout
+                        android:id="@+id/rl_story_2"
+                        android:layout_width="104dp"
+                        android:layout_height="176dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_story_card"
+                        android:clipToOutline="true"
+                        android:contentDescription="@string/cd_story_2">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:importantForAccessibility="no"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_story_2" />
+
+                        <!-- Dark fade so the white name is readable -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="64dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/bg_story_scrim" />
+
+                        <!-- Avatar inside a teal ring (ring = container background, 4dp padding) -->
+                        <RelativeLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/bg_story_ring"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_indigo"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_si"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginBottom="9dp"
+                            android:maxLines="1"
+                            android:text="@string/name_sara_iqbal"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <!-- Story card: name_hamza_ali -->
+                    <RelativeLayout
+                        android:id="@+id/rl_story_3"
+                        android:layout_width="104dp"
+                        android:layout_height="176dp"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_story_card"
+                        android:clipToOutline="true"
+                        android:contentDescription="@string/cd_story_3">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:importantForAccessibility="no"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_story_3" />
+
+                        <!-- Dark fade so the white name is readable -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="64dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/bg_story_scrim" />
+
+                        <!-- Avatar inside a teal ring (ring = container background, 4dp padding) -->
+                        <RelativeLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginTop="6dp"
+                            android:background="@drawable/bg_story_ring"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_brown"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_ha"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginBottom="9dp"
+                            android:maxLines="1"
+                            android:text="@string/name_hamza_ali"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Grey band -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@color/feed_band" />
+
         </LinearLayout>
     </ScrollView>
 
