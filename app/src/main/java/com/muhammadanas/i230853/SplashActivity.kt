@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 /*
-  01 · Splash
+  SCREEN 01 · Splash
   First screen of the app (launcher activity). Shows the Kinnect logo and
   wordmark on teal. Opening Log in automatically is added in the next step in Stage 2 of Phase 1 my nigga.
  */
