@@ -103,7 +103,29 @@
     <string name="action_comment">Comment</string>
     <string name="action_share">Share</string>
 
-
-
+    <!-- SCREEN 14: FRIENDS (Who even need this one seriously brev)-->
+    <!-- 14 · Friends -->
+    <string name="suggestions">Suggestions</string>
+    <string name="your_friends">Your friends</string>
+    <string name="friend_requests">Friend requests</string>
+    <string name="friend_requests_count">12</string>
+    <string name="see_all">See all</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete">Delete</string>
+    <string name="people_you_may_know">People you may know</string>
+    <string name="initials_ba">BA</string>
+    <string name="initials_nf">NF</string>
+    <string name="initials_ds">DS</string>
+    <string name="name_bilal_ahmed">Bilal Ahmed</string>
+    <string name="name_noor_fatima">Noor Fatima</string>
+    <string name="name_daniyal_shah">Daniyal Shah</string>
+    <string name="time_3d">3d</string>
+    <string name="time_1w">1w</string>
+    <string name="time_2w">2w</string>
+    <string name="time_3w">3w</string>
+    <string name="mutual_8">8 mutual friends</string>
+    <string name="mutual_14">14 mutual friends</string>
+    <string name="mutual_3">3 mutual friends</string>
+    <string name="mutual_21">21 mutual friends</string>
 
 </resources>
