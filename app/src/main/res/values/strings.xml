@@ -103,6 +103,36 @@
     <string name="action_comment">Comment</string>
     <string name="action_share">Share</string>
 
+    <!-- SCREEN 06: COMMENTS -->
+    <!-- 06 · Comments -->
+    <string name="comments_title">Comments</string>
+    <string name="most_relevant">Most relevant</string>
+    <string name="reactions_1_2k">1.2K</string>
+    <string name="name_aisha_khan">Aisha Khan</string>
+    <string name="name_lina_marsh">Lina Marsh</string>
+    <string name="name_zain_raza">Zain Raza</string>
+    <string name="name_maya_chen">Maya Chen</string>
+    <string name="initials_mc">MC</string>
+    <string name="comment_aisha">That sky is unreal. Which part of the beach was this?</string>
+    <string name="comment_lina">Near the old pier, right before the rain started!</string>
+    <string name="comment_zain"><font color="#0B5F63">\@Lina Marsh</font> next time invite the rest of us</string>
+    <string name="comment_hamza">Same spot, one year ago:</string>
+    <string name="comment_maya">Framing this one.</string>
+    <string name="count_24">24</string>
+    <string name="count_3">3</string>
+    <string name="time_1h">1h</string>
+    <string name="time_45m">45m</string>
+    <string name="action_reply">Reply</string>
+    <string name="view_6_more_replies">View 6 more replies</string>
+    <string name="cd_comment_photo">Photo in comment</string>
+    <string name="replying_to_aisha">Replying to <font color="#1C1B19"><b>Aisha Khan</b></font></string>
+    <string name="cancel">Cancel</string>
+    <string name="write_a_reply">Write a reply…</string>
+    <string name="cd_camera">Camera</string>
+    <string name="cd_emoji">Emoji</string>
+    <string name="cd_send">Send</string>
+
+
     <!-- SCREEN 14: FRIENDS (Who even need this one seriously brev)-->
     <!-- 14 · Friends -->
     <string name="suggestions">Suggestions</string>
@@ -183,8 +213,6 @@
     <string name="area_dha6">DHA Phase 6</string>
     <string name="area_gulshan">Gulshan</string>
     <string name="area_saddar">Saddar</string>
-
-
 
 
 </resources>

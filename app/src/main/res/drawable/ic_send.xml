@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Send: outlined paper plane pointing up-right, 24dp, drawn to match the design. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Plane outline -->
+    <path
+        android:pathData="M21,3L3,10.5L10.5,13.5L13.5,21Z"
+        android:strokeColor="#FF000000"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.8" />
+    <!-- Fold line -->
+    <path
+        android:pathData="M21,3L10.5,13.5"
+        android:strokeColor="#FF000000"
+        android:strokeLineCap="round"
+        android:strokeWidth="1.8" />
+</vector>

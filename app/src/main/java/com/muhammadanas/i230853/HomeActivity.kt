@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.content.Intent
+import android.view.View
 
 /*
   SCREEN 04 · Home feed
@@ -26,5 +28,15 @@ class HomeActivity : AppCompatActivity() {
 
         // Top tab bar
         TabBar.setup(this, HomeActivity::class.java)
+
+
+        // "Comment" button and "86 comments · 12 shares" -> Comments
+        findViewById<View>(R.id.ll_action_comment).setOnClickListener { openComments() }
+        findViewById<View>(R.id.tv_post_counts).setOnClickListener { openComments() }
     }
+
+    private fun openComments() {
+        startActivity(Intent(this, CommentsActivity::class.java))
+    }
+
 }

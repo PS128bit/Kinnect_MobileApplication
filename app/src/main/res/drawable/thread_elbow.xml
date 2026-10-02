@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Thread connector on Comments: a grey line that runs down and curves right into a reply's avatar.
+    Used at exactly 26dp x 58dp so the curve is never stretched.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="26dp"
+    android:height="58dp"
+    android:viewportWidth="26"
+    android:viewportHeight="58">
+    <path
+        android:pathData="M1,0V48Q1,57 10,57H26"
+        android:strokeColor="#FFD2D1CC"
+        android:strokeWidth="2" />
+</vector>

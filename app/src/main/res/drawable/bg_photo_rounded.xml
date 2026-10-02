@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rounded photo shape (14dp corners) for photos inside comments and chats.
+     The ImageView sets clipToOutline="true" so the photo is cut to these corners. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/pill_grey" />
+    <corners android:radius="14dp" />
+</shape>

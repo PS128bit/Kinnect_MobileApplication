@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    06 · Comments
+    Fixed top bar and reactions row, a scrolling list of comments (ScrollView),
+    and a reply bar fixed at the bottom.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".CommentsActivity">
+
+    <!-- Top bar: back, "Comments", "Most relevant" sort pill -->
+    <RelativeLayout
+        android:id="@+id/rl_comments_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:paddingStart="2dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/iv_comments_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/cd_back"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/iv_comments_back"
+            android:text="@string/comments_title"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Sort pill: text + small down arrow on a grey pill -->
+        <LinearLayout
+            android:id="@+id/ll_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_pill"
+            android:backgroundTint="@color/pill_grey"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/most_relevant"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="4dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_chevron_down"
+                app:tint="@color/text_primary" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- Reactions summary for the post: badges, total, arrow -->
+    <LinearLayout
+        android:id="@+id/ll_comments_reactions"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="14dp">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/react_like" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="-8dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/react_love" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="-8dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/react_haha" />
+
+        <!-- layout_weight="1" pushes the arrow to the right edge -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/reactions_1_2k"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_chevron_right"
+            app:tint="@color/text_secondary" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- Comments list: scrolls between the fixed top part and the reply bar.
+         height 0dp + layout_weight="1" = takes all the space that is left. -->
+    <ScrollView
+        android:id="@+id/sv_comments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Aisha's comment with its replies -->
+            <RelativeLayout
+                android:id="@+id/rl_thread_aisha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:id="@+id/tv_c1_avatar"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_maroon"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_ak"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Comment bubble: name in bold, then the comment -->
+                <LinearLayout
+                    android:id="@+id/ll_c1_bubble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_toEndOf="@id/tv_c1_avatar"
+                    android:background="@drawable/bg_bubble"
+                    android:backgroundTint="@color/pill_grey"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="9dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_aisha_khan"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/comment_aisha"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Time, Like, Reply under the bubble -->
+                <LinearLayout
+                    android:id="@+id/ll_c1_meta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_c1_bubble"
+                    android:layout_alignStart="@id/ll_c1_bubble"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_2h"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_like"
+                        android:textColor="@color/kinnect_teal"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_reply"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Reaction count pill overlapping the bubble's bottom-right corner -->
+                <LinearLayout
+                    android:id="@+id/ll_c1_reactions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/ll_c1_bubble"
+                    android:layout_alignBottom="@id/ll_c1_bubble"
+                    android:layout_marginEnd="-16dp"
+                    android:layout_marginBottom="-11dp"
+                    android:background="@drawable/bg_react_pill"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="7dp"
+                    android:paddingBottom="3dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/react_like" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="-4dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/react_love" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/count_24"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Reply 1: Lina Marsh (smaller avatar, indented) -->
+                <TextView
+                    android:id="@+id/tv_c2_avatar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/ll_c1_meta"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_purple"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_lm"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Comment bubble: name in bold, then the comment -->
+                <LinearLayout
+                    android:id="@+id/ll_c2_bubble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/tv_c2_avatar"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_toEndOf="@id/tv_c2_avatar"
+                    android:background="@drawable/bg_bubble"
+                    android:backgroundTint="@color/pill_grey"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="9dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_lina_marsh"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/comment_lina"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Time, Like, Reply under the bubble -->
+                <LinearLayout
+                    android:id="@+id/ll_c2_meta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_c2_bubble"
+                    android:layout_alignStart="@id/ll_c2_bubble"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_1h"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_like"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_reply"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Reaction count pill overlapping the bubble's bottom-right corner -->
+                <LinearLayout
+                    android:id="@+id/ll_c2_reactions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@id/ll_c2_bubble"
+                    android:layout_alignBottom="@id/ll_c2_bubble"
+                    android:layout_marginEnd="-16dp"
+                    android:layout_marginBottom="-11dp"
+                    android:background="@drawable/bg_react_pill"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="3dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="7dp"
+                    android:paddingBottom="3dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/react_haha" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/count_3"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Thread line curving into the reply below -->
+                <ImageView
+                    android:id="@+id/iv_c2_thread"
+                    android:layout_width="26dp"
+                    android:layout_height="58dp"
+                    android:layout_alignBottom="@id/tv_c2_avatar"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="14dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/thread_elbow" />
+
+                <!-- Reply 2: Zain Raza -->
+                <TextView
+                    android:id="@+id/tv_c3_avatar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_below="@id/ll_c2_meta"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="58dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_blue"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_zr"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- Comment bubble: name in bold, then the comment -->
+                <LinearLayout
+                    android:id="@+id/ll_c3_bubble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/tv_c3_avatar"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_toEndOf="@id/tv_c3_avatar"
+                    android:background="@drawable/bg_bubble"
+                    android:backgroundTint="@color/pill_grey"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="9dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_zain_raza"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/comment_zain"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Time, Like, Reply under the bubble -->
+                <LinearLayout
+                    android:id="@+id/ll_c3_meta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_c3_bubble"
+                    android:layout_alignStart="@id/ll_c3_bubble"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_45m"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_like"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_reply"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Thread line curving into the reply below -->
+                <ImageView
+                    android:id="@+id/iv_c3_thread"
+                    android:layout_width="26dp"
+                    android:layout_height="58dp"
+                    android:layout_alignBottom="@id/tv_c3_avatar"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="14dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/thread_elbow" />
+
+                <!-- "View 6 more replies", with the thread line curving into it -->
+                <TextView
+                    android:id="@+id/tv_view_more_replies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_c3_meta"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/view_6_more_replies"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Thread line curving into the reply below -->
+                <ImageView
+                    android:id="@+id/iv_more_thread"
+                    android:layout_width="26dp"
+                    android:layout_height="58dp"
+                    android:layout_alignBottom="@id/tv_view_more_replies"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/thread_elbow" />
+            </RelativeLayout>
+
+            <!-- Hamza's comment with a photo -->
+            <RelativeLayout
+                android:id="@+id/rl_comment_hamza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp">
+
+                <TextView
+                    android:id="@+id/tv_c4_avatar"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_brown"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_ha"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Comment bubble: name in bold, then the comment -->
+                <LinearLayout
+                    android:id="@+id/ll_c4_bubble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_toEndOf="@id/tv_c4_avatar"
+                    android:background="@drawable/bg_bubble"
+                    android:backgroundTint="@color/pill_grey"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="9dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_hamza_ali"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/comment_hamza"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Photo attached to the comment, with rounded corners (clipToOutline) -->
+                <ImageView
+                    android:id="@+id/iv_c4_photo"
+                    android:layout_width="180dp"
+                    android:layout_height="124dp"
+                    android:layout_below="@id/ll_c4_bubble"
+                    android:layout_alignStart="@id/ll_c4_bubble"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_photo_rounded"
+                    android:clipToOutline="true"
+                    android:contentDescription="@string/cd_comment_photo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_cover_me" />
+
+                <!-- Time, Like, Reply under the bubble -->
+                <LinearLayout
+                    android:id="@+id/ll_c4_meta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_c4_photo"
+                    android:layout_alignStart="@id/iv_c4_photo"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/time_1h"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_like"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/action_reply"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Maya's comment -->
+            <RelativeLayout
+                android:id="@+id/rl_comment_maya"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp">
+
+                <TextView
+                    android:id="@+id/tv_c5_avatar"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_olive"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:text="@string/initials_mc"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Comment bubble: name in bold, then the comment -->
+                <LinearLayout
+                    android:id="@+id/ll_c5_bubble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_toEndOf="@id/tv_c5_avatar"
+                    android:background="@drawable/bg_bubble"
+                    android:backgroundTint="@color/pill_grey"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="9dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_maya_chen"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/comment_maya"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Reply bar, fixed at the bottom: "Replying to …" and the message box -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <LinearLayout
+        android:id="@+id/ll_reply_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp">
+
+        <!-- "Replying to Aisha Khan" on the left, "Cancel" on the right -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/replying_to_aisha"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_reply_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="@string/cancel"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Camera, message box (with emoji button inside), send button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_reply_camera"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="4dp"
+                android:contentDescription="@string/cd_camera"
+                android:src="@drawable/ic_camera"
+                app:tint="@color/kinnect_teal" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/pill_grey"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="10dp">
+
+                <EditText
+                    android:id="@+id/et_reply"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/write_a_reply"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLines="3"
+                    android:minHeight="0dp"
+                    android:padding="0dp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/iv_reply_emoji"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/cd_emoji"
+                    android:src="@drawable/ic_emoji"
+                    app:tint="@color/text_secondary" />
+            </LinearLayout>
+
+            <!-- Send: teal circle with a white paper plane -->
+            <ImageView
+                android:id="@+id/iv_reply_send"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/kinnect_teal"
+                android:contentDescription="@string/cd_send"
+                android:paddingStart="9dp"
+                android:paddingTop="11dp"
+                android:paddingEnd="11dp"
+                android:paddingBottom="9dp"
+                android:src="@drawable/ic_send"
+                app:tint="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
