@@ -49,4 +49,6 @@
 
     <color name="story_bar_dim">#66FFFFFF</color>   <!-- 40% white: unwatched part of story progress bars -->
 
+    <color name="clear_grey">#AAA198</color>        <!-- clear (X) circle in the search bar -->
+
 </resources>

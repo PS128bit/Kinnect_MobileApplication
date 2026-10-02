@@ -153,6 +153,33 @@
     <string name="karachi_nights">Karachi nights</string>
     <string name="send_message">Send message…</string>
 
+    <!-- SCREEN 13: SEARCH -->
+    <!-- 13 · Search -->
+    <string name="search_query_omar">omar</string>
+    <string name="cd_clear_search">Clear search</string>
+    <string name="filter_all">All</string>
+    <string name="filter_people">People</string>
+    <string name="filter_posts">Posts</string>
+    <string name="filter_groups">Groups</string>
+    <string name="name_omar_siddiqui">Omar Siddiqui</string>
+    <string name="name_omar_tariq">Omar Tariq</string>
+    <string name="initials_os">OS</string>
+    <string name="initials_ot">OT</string>
+    <string name="initials_op">OP</string>
+    <string name="search_omar_farooq_sub">Friend · Lives in Karachi</string>
+    <string name="search_omar_siddiqui_sub">12 mutual friends · FAST-NUCES</string>
+    <string name="search_omar_tariq_sub">Works at Daraz · 3 mutual friends</string>
+    <string name="cd_add_friend">Add friend</string>
+    <string name="see_all_people">See all people</string>
+    <string name="group_omar_photography">Omar\'s Photography Circle</string>
+    <string name="group_omar_photography_sub">Public · 2.4K members · 10+ posts a day</string>
+    <string name="join">Join</string>
+    <string name="recent_searches">Recent searches</string>
+    <string name="recent_lina_marsh">lina marsh</string>
+    <string name="recent_study_desk">study desk karachi</string>
+    <string name="recent_smd_class">SMD Class of 2026</string>
+    <string name="cd_remove">Remove</string>
+
 
     <!-- SCREEN 14: FRIENDS (Who even need this one seriously brev)-->
     <!-- 14 · Friends -->
