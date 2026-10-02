@@ -1,10 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+    23 · Marketplace
+    Header and top tab bar stay fixed at the top; the content below scrolls (ScrollView).
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MarketplaceActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--
+        Header: screen title on the left, round Search and Chats buttons on the right.
+        RelativeLayout lets the orange "3" badge overlap the Chats button.
+    -->
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <!-- Screen title -->
+        <TextView
+            android:id="@+id/tv_market_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:text="@string/tab_marketplace"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Chats button: grey circle with the chat icon -->
+        <ImageView
+            android:id="@+id/iv_header_chats"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/pill_grey"
+            android:contentDescription="@string/cd_chats"
+            android:padding="10dp"
+            android:src="@drawable/ic_chat"
+            app:tint="@color/text_primary" />
+
+        <!-- Unread chats badge, overlapping the Chats button's top-right corner -->
+        <TextView
+            android:id="@+id/tv_badge_chats"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_alignTop="@id/iv_header_chats"
+            android:layout_alignEnd="@id/iv_header_chats"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="-3dp"
+            android:background="@drawable/bg_badge"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/badge_count_3"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <!-- Search button, 8dp to the left of Chats -->
+        <ImageView
+            android:id="@+id/iv_header_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/iv_header_chats"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/pill_grey"
+            android:contentDescription="@string/cd_search"
+            android:padding="10dp"
+            android:src="@drawable/ic_search"
+            app:tint="@color/text_primary" />
+    </RelativeLayout>
+
+    <!--
+        Top tab bar: 5 equal tabs (layout_weight="1" each).
+        The active tab has a teal icon and a teal underline.
+        Same ids on all 5 tab screens, so one piece of Kotlin can wire them all.
+    -->
+    <LinearLayout
+        android:id="@+id/ll_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <!-- Home tab -->
+        <RelativeLayout
+            android:id="@+id/tab_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/tab_home">
+
+            <ImageView
+                android:id="@+id/iv_tab_home"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerInParent="true"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_home"
+                app:tint="@color/text_primary" />
+        </RelativeLayout>
+
+        <!-- Friends tab -->
+        <RelativeLayout
+            android:id="@+id/tab_friends"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/tab_friends">
+
+            <ImageView
+                android:id="@+id/iv_tab_friends"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerInParent="true"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_friends"
+                app:tint="@color/text_primary" />
+        </RelativeLayout>
+
+        <!-- Marketplace tab (active) -->
+        <RelativeLayout
+            android:id="@+id/tab_marketplace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/tab_marketplace">
+
+            <ImageView
+                android:id="@+id/iv_tab_marketplace"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerInParent="true"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_marketplace"
+                app:tint="@color/kinnect_teal" />
+
+            <!-- Teal underline marks the active tab -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/kinnect_teal" />
+        </RelativeLayout>
+
+        <!-- Notifications tab -->
+        <RelativeLayout
+            android:id="@+id/tab_notifications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/tab_notifications">
+
+            <ImageView
+                android:id="@+id/iv_tab_notifications"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerInParent="true"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_notifications"
+                app:tint="@color/text_primary" />
+
+            <!-- Unread notifications badge, overlapping the bell's top-right corner -->
+            <TextView
+                android:id="@+id/tv_badge_notifications"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignTop="@id/iv_tab_notifications"
+                android:layout_alignEnd="@id/iv_tab_notifications"
+                android:layout_marginTop="-4dp"
+                android:layout_marginEnd="-7dp"
+                android:background="@drawable/bg_badge"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/badge_count_5"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Menu tab -->
+        <RelativeLayout
+            android:id="@+id/tab_menu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:contentDescription="@string/tab_menu">
+
+            <ImageView
+                android:id="@+id/iv_tab_menu"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_centerInParent="true"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/text_primary" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Thin line under the tab bar -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- Scrolling content -->
+    <ScrollView
+        android:id="@+id/sv_marketplace_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <!-- Sell / Categories: two equal grey pills (layout_weight="1" each) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_market_sell"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_pill"
+                    android:backgroundTint="@color/pill_grey"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_edit"
+                        app:tint="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/sell"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_market_categories"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_pill"
+                    android:backgroundTint="@color/pill_grey"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_grid"
+                        app:tint="@color/text_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/categories"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- "Today's picks" heading, location on the right -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- layout_weight="1" pushes the location to the right edge -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/todays_picks"
+                    android:textColor="@color/text_primary"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/cd_location"
+                    android:src="@drawable/ic_location"
+                    app:tint="@color/kinnect_teal" />
+
+                <TextView
+                    android:id="@+id/tv_market_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/market_location"
+                    android:textColor="@color/kinnect_teal"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
