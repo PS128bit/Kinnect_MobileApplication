@@ -128,4 +128,28 @@
     <string name="mutual_3">3 mutual friends</string>
     <string name="mutual_21">21 mutual friends</string>
 
+    <!-- SCREEN 23: MARKETPLACE (This one is even more useless than Friends screen, like who even uses this instead of Amazon or Alibaba etc)-->
+    <!-- 23 · Marketplace -->
+    <string name="sell">Sell</string>
+    <string name="categories">Categories</string>
+    <string name="todays_picks">Today\'s picks</string>
+    <string name="cd_location">Location</string>
+    <string name="market_location">Karachi · 40 km</string>
+    <string name="just_listed">Just listed</string>
+    <string name="price_45000">Rs 45,000</string>
+    <string name="price_8500">Rs 8,500</string>
+    <string name="price_15000">Rs 15,000</string>
+    <string name="price_3200">Rs 3,200</string>
+    <string name="listing_road_bike">Road bike, 21-speed</string>
+    <string name="listing_armchair">Rattan armchair</string>
+    <string name="listing_study_desk">Solid wood study desk</string>
+    <string name="listing_plant_pots">Ceramic plant pots, set of 3</string>
+    <string name="area_clifton">Clifton</string>
+    <string name="area_dha6">DHA Phase 6</string>
+    <string name="area_gulshan">Gulshan</string>
+    <string name="area_saddar">Saddar</string>
+
+
+
+
 </resources>
