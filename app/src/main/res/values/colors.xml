@@ -47,4 +47,6 @@
     <color name="feed_band">#E6E3DA</color>         <!-- grey band between feed sections (Home) -->
     <color name="photo_dim">#66000000</color>       <!-- 40% black over the "+4" photo -->
 
+    <color name="story_bar_dim">#66FFFFFF</color>   <!-- 40% white: unwatched part of story progress bars -->
+
 </resources>

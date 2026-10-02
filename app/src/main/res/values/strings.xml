@@ -145,6 +145,14 @@
     <string name="cd_emoji">Emoji</string>
     <string name="cd_send">Send</string>
 
+    <!-- SCREEN 11: STORY VIEWER-->
+    <!-- 11 · Story viewer -->
+    <string name="cd_story_photo">Story photo</string>
+    <string name="cd_close">Close</string>
+    <string name="story_time_5h">5h ·</string>
+    <string name="karachi_nights">Karachi nights</string>
+    <string name="send_message">Send message…</string>
+
 
     <!-- SCREEN 14: FRIENDS (Who even need this one seriously brev)-->
     <!-- 14 · Friends -->

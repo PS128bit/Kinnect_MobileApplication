@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark fade at the top of a story so the white progress bars, name and buttons
+     stay readable on any photo. Runs from dark (top) to clear (bottom). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:endColor="#00000000"
+        android:startColor="#66000000" />
+</shape>

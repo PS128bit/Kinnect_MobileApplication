@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Text sticker on a story (e.g. "Karachi nights"): white with 8dp corners.
+     Kept WHITE; tint it with backgroundTint for coloured stickers (e.g. "Saturday plans"). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/white" />
+    <corners android:radius="8dp" />
+</shape>
