@@ -138,12 +138,12 @@
     <string name="just_listed">Just listed</string>
     <string name="price_45000">Rs 45,000</string>
     <string name="price_8500">Rs 8,500</string>
-    <string name="price_15000">Rs 15,000</string>
+    <string name="price_105000">Rs 105,000</string>
     <string name="price_3200">Rs 3,200</string>
     <string name="listing_road_bike">Road bike, 21-speed</string>
-    <string name="listing_armchair">Rattan armchair</string>
-    <string name="listing_study_desk">Solid wood study desk</string>
-    <string name="listing_plant_pots">Ceramic plant pots, set of 3</string>
+    <string name="listing_chair">Wooden Chair</string>
+    <string name="listing_mobile_phone">Iphone 15 Pro Max</string>
+    <string name="listing_plant_pots">Ceramic plant pots, set of 2</string>
     <string name="area_clifton">Clifton</string>
     <string name="area_dha6">DHA Phase 6</string>
     <string name="area_gulshan">Gulshan</string>

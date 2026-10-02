@@ -327,6 +327,269 @@
                     android:textSize="14sp" />
             </LinearLayout>
 
+            <!-- Row of two listings (layout_weight="1" each, 8dp gap) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal">
+
+                <!-- Listing 1 -->
+                <LinearLayout
+                    android:id="@+id/ll_listing_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- Photo with rounded corners: same rounded shape as the story cards,
+                         clipToOutline="true" cuts the photo (and the tag) to it -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="176dp"
+                        android:background="@drawable/bg_story_card"
+                        android:clipToOutline="true">
+
+                        <ImageView
+                            android:id="@+id/iv_listing_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/listing_road_bike"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_market_1" />
+
+                        <!-- "JUST LISTED" tag in the photo's top-left corner -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="21dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_tag"
+                            android:backgroundTint="@color/accent_orange"
+                            android:gravity="center"
+                            android:letterSpacing="0.04"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="@string/just_listed"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/price_45000"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:maxLines="1"
+                        android:text="@string/listing_road_bike"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/area_clifton"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Listing 2 -->
+                <LinearLayout
+                    android:id="@+id/ll_listing_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- Photo with rounded corners: same rounded shape as the story cards,
+                         clipToOutline="true" cuts the photo (and the tag) to it -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="176dp"
+                        android:background="@drawable/bg_story_card"
+                        android:clipToOutline="true">
+
+                        <ImageView
+                            android:id="@+id/iv_listing_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/listing_chair"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_market_2" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/price_8500"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:maxLines="1"
+                        android:text="@string/listing_chair"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/area_dha6"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Row of two listings (layout_weight="1" each, 8dp gap) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal">
+
+                <!-- Listing 3 -->
+                <LinearLayout
+                    android:id="@+id/ll_listing_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- Photo with rounded corners: same rounded shape as the story cards,
+                         clipToOutline="true" cuts the photo (and the tag) to it -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="176dp"
+                        android:background="@drawable/bg_story_card"
+                        android:clipToOutline="true">
+
+                        <ImageView
+                            android:id="@+id/iv_listing_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/listing_mobile_phone"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_market_3" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/price_105000"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:maxLines="1"
+                        android:text="@string/listing_mobile_phone"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/area_gulshan"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Listing 4 -->
+                <LinearLayout
+                    android:id="@+id/ll_listing_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- Photo with rounded corners: same rounded shape as the story cards,
+                         clipToOutline="true" cuts the photo (and the tag) to it -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="176dp"
+                        android:background="@drawable/bg_story_card"
+                        android:clipToOutline="true">
+
+                        <ImageView
+                            android:id="@+id/iv_listing_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/listing_plant_pots"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_market_4" />
+
+                        <!-- "JUST LISTED" tag in the photo's top-left corner -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="21dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/bg_tag"
+                            android:backgroundTint="@color/accent_orange"
+                            android:gravity="center"
+                            android:letterSpacing="0.04"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:text="@string/just_listed"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/price_3200"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:maxLines="1"
+                        android:text="@string/listing_plant_pots"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/area_saddar"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
