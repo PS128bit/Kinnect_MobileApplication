@@ -103,6 +103,19 @@
     <string name="action_comment">Comment</string>
     <string name="action_share">Share</string>
 
+    <!-- SCREEN 05: REACTIONS -->
+    <!-- 05 · Reaction picker -->
+    <string name="linas_post">Lina's post</string>
+    <string name="count_86_comments">86 comments</string>
+    <string name="comment_aisha_short">That sky is unreal.</string>
+    <string name="cd_close_reactions">Close reactions</string>
+    <string name="reaction_like">Like</string>
+    <string name="reaction_love">Love</string>
+    <string name="reaction_haha">Haha</string>
+    <string name="reaction_wow">Wow</string>
+    <string name="reaction_sad">Sad</string>
+    <string name="reaction_angry">Angry</string>
+
     <!-- SCREEN 06: COMMENTS -->
     <!-- 06 · Comments -->
     <string name="comments_title">Comments</string>

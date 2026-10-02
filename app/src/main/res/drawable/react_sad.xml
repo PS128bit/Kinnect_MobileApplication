@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Sad" reaction: yellow circle with a white ring and a white face. Self-coloured, no tint. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#C98612"
+        android:pathData="M1,12a11,11 0,1 0,22 0a11,11 0,1 0,-22 0"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="2" />
+    <!-- Eyes: two dots -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M7.6,10a1.4,1.4 0,1 0,2.8 0a1.4,1.4 0,1 0,-2.8 0M13.6,10a1.4,1.4 0,1 0,2.8 0a1.4,1.4 0,1 0,-2.8 0" />
+    <!-- Mouth: frown -->
+    <path
+        android:pathData="M8.3,17Q12,13.4 15.7,17"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="1.6" />
+</vector>

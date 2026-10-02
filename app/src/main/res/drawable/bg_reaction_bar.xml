@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- White fully-rounded bar behind the reaction faces. The view also sets
+     elevation so Android draws the soft shadow under it. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/white" />
+    <corners android:radius="100dp" />
+</shape>

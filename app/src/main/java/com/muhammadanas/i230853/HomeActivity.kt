@@ -33,6 +33,12 @@ class HomeActivity : AppCompatActivity() {
         // "Comment" button and "86 comments · 12 shares" -> Comments
         findViewById<View>(R.id.ll_action_comment).setOnClickListener { openComments() }
         findViewById<View>(R.id.tv_post_counts).setOnClickListener { openComments() }
+
+
+        // "Like" button -> Reaction picker
+        findViewById<View>(R.id.ll_action_like).setOnClickListener {
+            startActivity(Intent(this, ReactionPickerActivity::class.java))
+        }
     }
 
     private fun openComments() {
