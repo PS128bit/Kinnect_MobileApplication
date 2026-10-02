@@ -468,6 +468,398 @@
                 </RelativeLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/tv_notif_earlier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="14dp"
+                android:text="@string/notif_earlier"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Notification 3 -->
+            <RelativeLayout
+                android:id="@+id/rl_notif_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!--
+                    Avatar holder (66dp): 60dp avatar in the top-left corner and a small
+                    icon badge in the bottom-right corner, so the badge overlaps the avatar.
+                -->
+                <RelativeLayout
+                    android:id="@+id/rl_notif_avatar_3"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_alignParentStart="true">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_blue"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="@string/initials_zr"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- Badge: white circle (the ring) with a 3dp padding around a coloured circle -->
+                    <RelativeLayout
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/bg_circle"
+                        android:padding="3dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/avatar_green"
+                            android:importantForAccessibility="no"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_chat"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!-- "..." options on the right -->
+                <ImageView
+                    android:id="@+id/iv_notif_more_3"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="7dp"
+                    android:contentDescription="@string/cd_more_options"
+                    android:src="@drawable/ic_more"
+                    app:tint="@color/text_secondary" />
+
+                <!-- Message (names in bold via <b> in strings.xml) and time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_toStartOf="@id/iv_notif_more_3"
+                    android:layout_toEndOf="@id/rl_notif_avatar_3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/notif_zain"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/time_2h"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Notification 4 -->
+            <RelativeLayout
+                android:id="@+id/rl_notif_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!--
+                    Avatar holder (66dp): 60dp avatar in the top-left corner and a small
+                    icon badge in the bottom-right corner, so the badge overlaps the avatar.
+                -->
+                <RelativeLayout
+                    android:id="@+id/rl_notif_avatar_4"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_alignParentStart="true">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_olive"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="@string/initials_dc"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- Badge: white circle (the ring) with a 3dp padding around a coloured circle -->
+                    <RelativeLayout
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/bg_circle"
+                        android:padding="3dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/avatar_indigo"
+                            android:importantForAccessibility="no"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_friends"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!-- "..." options on the right -->
+                <ImageView
+                    android:id="@+id/iv_notif_more_4"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="7dp"
+                    android:contentDescription="@string/cd_more_options"
+                    android:src="@drawable/ic_more"
+                    app:tint="@color/text_secondary" />
+
+                <!-- Message (names in bold via <b> in strings.xml) and time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_toStartOf="@id/iv_notif_more_4"
+                    android:layout_toEndOf="@id/rl_notif_avatar_4"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/notif_smd"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/time_5h"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Notification 5 -->
+            <RelativeLayout
+                android:id="@+id/rl_notif_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!--
+                    Avatar holder (66dp): 60dp avatar in the top-left corner and a small
+                    icon badge in the bottom-right corner, so the badge overlaps the avatar.
+                -->
+                <RelativeLayout
+                    android:id="@+id/rl_notif_avatar_5"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_alignParentStart="true">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_brown"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="@string/initials_ha"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- Badge: white circle (the ring) with a 3dp padding around a coloured circle -->
+                    <RelativeLayout
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/bg_circle"
+                        android:padding="3dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/reaction_yellow"
+                            android:importantForAccessibility="no"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_tag"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!-- "..." options on the right -->
+                <ImageView
+                    android:id="@+id/iv_notif_more_5"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="7dp"
+                    android:contentDescription="@string/cd_more_options"
+                    android:src="@drawable/ic_more"
+                    app:tint="@color/text_secondary" />
+
+                <!-- Message (names in bold via <b> in strings.xml) and time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_toStartOf="@id/iv_notif_more_5"
+                    android:layout_toEndOf="@id/rl_notif_avatar_5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/notif_hamza"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/time_yesterday"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Notification 6 -->
+            <RelativeLayout
+                android:id="@+id/rl_notif_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!--
+                    Avatar holder (66dp): 60dp avatar in the top-left corner and a small
+                    icon badge in the bottom-right corner, so the badge overlaps the avatar.
+                -->
+                <RelativeLayout
+                    android:id="@+id/rl_notif_avatar_6"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_alignParentStart="true">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_purple"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="@string/initials_lm"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <!-- Badge: white circle (the ring) with a 3dp padding around a coloured circle -->
+                    <RelativeLayout
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/bg_circle"
+                        android:padding="3dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/kinnect_teal"
+                            android:importantForAccessibility="no"
+                            android:padding="6dp"
+                            android:src="@drawable/ic_thumb_filled"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!-- "..." options on the right -->
+                <ImageView
+                    android:id="@+id/iv_notif_more_6"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="7dp"
+                    android:contentDescription="@string/cd_more_options"
+                    android:src="@drawable/ic_more"
+                    app:tint="@color/text_secondary" />
+
+                <!-- Message (names in bold via <b> in strings.xml) and time -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_toStartOf="@id/iv_notif_more_6"
+                    android:layout_toEndOf="@id/rl_notif_avatar_6"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/notif_lina"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/time_2d"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- "See previous notifications": full-width grey button -->
+            <Button
+                android:id="@+id/btn_see_previous"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/bg_small_button"
+                android:backgroundTint="@color/pill_grey"
+                android:padding="0dp"
+                android:text="@string/see_previous_notifications"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 
