@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Log out: arrow pointing left out of an open bracket (outline), 24dp, drawn to match the design. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Bracket on the right (like a door frame) -->
+    <path
+        android:pathData="M13,4H17.5C18.33,4 19,4.67 19,5.5V18.5C19,19.33 18.33,20 17.5,20H13"
+        android:strokeColor="#FF000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.8" />
+    <!-- Arrow pointing left -->
+    <path
+        android:pathData="M15,12H5M9,8L5,12L9,16"
+        android:strokeColor="#FF000000"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="1.8" />
+</vector>

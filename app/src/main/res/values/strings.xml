@@ -149,6 +149,20 @@
     <string name="time_yesterday">Yesterday</string>
     <string name="time_2d">2d</string>
 
+    <!-- SCREEN 19: MENU (This one was my favorite to make brev)-->
+    <!-- 19 · Menu -->
+    <string name="see_your_profile">See your profile</string>
+    <string name="all_shortcuts">All shortcuts</string>
+    <string name="shortcut_memories">Memories</string>
+    <string name="shortcut_saved">Saved</string>
+    <string name="shortcut_groups">Groups</string>
+    <string name="shortcut_events">Events</string>
+    <string name="see_more">See more</string>
+    <string name="help_support">Help &amp; support</string>
+    <string name="settings_privacy">Settings &amp; privacy</string>
+    <string name="also_from_smd">Also from SMD</string>
+    <string name="log_out">Log out</string>
+
     <!-- SCREEN 23: MARKETPLACE (This one is even more useless than Friends screen, like who even uses this instead of Amazon or Alibaba etc)-->
     <!-- 23 · Marketplace -->
     <string name="sell">Sell</string>
@@ -169,6 +183,8 @@
     <string name="area_dha6">DHA Phase 6</string>
     <string name="area_gulshan">Gulshan</string>
     <string name="area_saddar">Saddar</string>
+
+
 
 
 </resources>
