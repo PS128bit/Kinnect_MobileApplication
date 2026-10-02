@@ -15,6 +15,7 @@ object TabBar {
         link(activity, currentScreen, R.id.tab_home, HomeActivity::class.java)
         link(activity, currentScreen, R.id.tab_friends, FriendsActivity::class.java)
         link(activity, currentScreen, R.id.tab_marketplace, MarketplaceActivity::class.java)
+        link(activity, currentScreen, R.id.tab_notifications, NotificationsActivity::class.java)
         // Marketplace, Notifications and Menu are added here as those screens are built
     }
 

@@ -128,6 +128,27 @@
     <string name="mutual_3">3 mutual friends</string>
     <string name="mutual_21">21 mutual friends</string>
 
+    <!-- SCREEN 18: NOTIFICATIONS (This one is a bit mid too )-->
+    <!-- 18 · Notifications -->
+    <string name="notif_new">New</string>
+    <string name="notif_earlier">Earlier</string>
+    <string name="notif_aisha"><b>Aisha Khan</b> and <b>32 others</b> reacted to your photo.</string>
+    <string name="notif_sara"><b>Sara Iqbal</b> sent you a friend request.</string>
+    <string name="notif_zain"><b>Zain Raza</b> replied to your comment: “next time invite the rest of us”</string>
+    <string name="notif_smd">New post in <b>SMD Class of 2026</b>: “Assignment 1 is out. Start early.”</string>
+    <string name="notif_hamza"><b>Hamza Ali</b> tagged you in a post.</string>
+    <string name="notif_lina"><b>Lina Marsh</b> liked your story.</string>
+    <string name="see_previous_notifications">See previous notifications</string>
+    <string name="initials_ak">AK</string>
+    <string name="initials_zr">ZR</string>
+    <string name="initials_dc">DC</string>
+    <string name="time_5m">5m</string>
+    <string name="time_20m">20m</string>
+    <string name="time_2h">2h</string>
+    <string name="time_5h">5h</string>
+    <string name="time_yesterday">Yesterday</string>
+    <string name="time_2d">2d</string>
+
     <!-- SCREEN 23: MARKETPLACE (This one is even more useless than Friends screen, like who even uses this instead of Amazon or Alibaba etc)-->
     <!-- 23 · Marketplace -->
     <string name="sell">Sell</string>
@@ -148,8 +169,6 @@
     <string name="area_dha6">DHA Phase 6</string>
     <string name="area_gulshan">Gulshan</string>
     <string name="area_saddar">Saddar</string>
-
-
 
 
 </resources>
