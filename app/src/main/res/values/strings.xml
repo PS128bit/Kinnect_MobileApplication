@@ -205,6 +205,15 @@
     <string name="karachi_nights">Karachi nights</string>
     <string name="send_message">Send message…</string>
 
+    <!-- SCREEN 12: YOUR STORY SCREEN -->
+    <!-- Your story -->
+    <string name="your_story_meta">11h · Close friends</string>
+    <string name="your_story_seen_by">Seen by 24</string>
+    <string name="your_story_create">Create</string>
+    <string name="your_story_highlight">Highlight</string>
+    <string name="your_story_send">Send</string>
+    <string name="your_story_more">More</string>
+
     <!-- SCREEN 13: SEARCH -->
     <!-- 13 · Search -->
     <string name="search_query_omar">omar</string>

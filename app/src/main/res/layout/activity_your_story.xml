@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    12 · Your story
+    Dark screen: your posted story with progress line, header and hearts; viewers and actions at the bottom.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/camera_black"
+    android:orientation="vertical"
+    tools:context=".YourStoryActivity">
+
+    <!--
+        The story: rounded picture filling the space above the bottom bar (layout_weight="1").
+        Progress line, header, sticker and floating hearts sit on top (RelativeLayout).
+    -->
+    <RelativeLayout
+        android:id="@+id/rl_your_story_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_camera_view"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:id="@+id/iv_your_story_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/art_camera_view" />
+
+        <!-- Progress line: 80% watched (weights 4 : 1) -->
+        <LinearLayout
+            android:id="@+id/ll_your_story_progress"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@color/white" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/story_bar_dim" />
+        </LinearLayout>
+
+        <!-- Header: JW circle, "Your story", time and audience -->
+        <TextView
+            android:id="@+id/tv_your_story_avatar"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/kinnect_teal"
+            android:gravity="center"
+            android:importantForAccessibility="no"
+            android:text="@string/demo_user_initials"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_your_story_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_your_story_avatar"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@id/tv_your_story_avatar"
+            android:text="@string/editor_your_story"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_your_story_meta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_your_story_title"
+            android:layout_alignStart="@id/tv_your_story_title"
+            android:alpha="0.85"
+            android:text="@string/your_story_meta"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/iv_your_story_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/cd_close"
+            android:padding="8dp"
+            android:src="@drawable/ic_close"
+            app:tint="@color/white" />
+
+        <!-- Same tilted sticker as in the Story editor -->
+        <TextView
+            android:id="@+id/tv_your_story_sticker"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/bg_sticker"
+            android:backgroundTint="@color/accent_orange"
+            android:gravity="center"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:rotation="3"
+            android:text="@string/editor_sticker"
+            android:textColor="@color/white"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <!-- Floating hearts from viewers: newest at the bottom, older ones smaller and fainter (alpha) -->
+        <ImageView
+            android:id="@+id/iv_heart_1"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="179dp"
+            android:alpha="0.35"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/love_red"
+            android:importantForAccessibility="no"
+            android:padding="5dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_heart_2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="142dp"
+            android:alpha="0.5"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/love_red"
+            android:importantForAccessibility="no"
+            android:padding="6dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_heart_3"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="104dp"
+            android:alpha="0.65"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/love_red"
+            android:importantForAccessibility="no"
+            android:padding="6dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_heart_4"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginBottom="63dp"
+            android:alpha="0.85"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/love_red"
+            android:importantForAccessibility="no"
+            android:padding="7dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_heart_5"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginBottom="23dp"
+            android:alpha="1"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/love_red"
+            android:importantForAccessibility="no"
+            android:padding="8dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/white" />
+    </RelativeLayout>
+
+    <!-- Bottom bar: who saw it, then four actions; 5 equal columns (weight 1 each) -->
+    <LinearLayout
+        android:id="@+id/ll_your_story_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="19dp"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <LinearLayout
+            android:id="@+id/ll_story_seen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- Three small overlapping viewer circles (negative margin) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_maroon"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/initials_ak"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="-4dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_purple"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/initials_lm"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="-4dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_green"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/initials_of"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/your_story_seen_by"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_story_create"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:importantForAccessibility="no"
+                android:padding="1dp"
+                android:src="@drawable/ic_create_reel"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/your_story_create"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_story_highlight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:importantForAccessibility="no"
+                android:padding="1dp"
+                android:src="@drawable/ic_heart_outline"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/your_story_highlight"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_story_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:importantForAccessibility="no"
+                android:padding="1dp"
+                android:src="@drawable/ic_send"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/your_story_send"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_story_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:importantForAccessibility="no"
+                android:padding="1dp"
+                android:src="@drawable/ic_more"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/your_story_more"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

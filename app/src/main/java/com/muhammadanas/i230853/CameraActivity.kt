@@ -54,6 +54,7 @@ class CameraActivity : AppCompatActivity() {
         // Shutter: "take the photo" and open the Story editor
         findViewById<View>(R.id.v_camera_shutter).setOnClickListener {
             startActivity(Intent(this, StoryEditorActivity::class.java))
+            finish()
         }
 
     }

@@ -1,6 +1,5 @@
 package com.muhammadanas.i230853
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -11,32 +10,23 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 /*
-  SCREEN 10 · Story editor
-  Decorate the photo with a sticker and choose who sees it. Opened from the Camera shutter.
+  SCREEN 12 · Your story
+  Your shared story with viewers, hearts and actions. Opened from the Story editor.
  */
-class StoryEditorActivity : AppCompatActivity() {
+class YourStoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Dark screen, so the status bar and navigation bar icons are white
         enableEdgeToEdge(SystemBarStyle.dark(Color.TRANSPARENT), SystemBarStyle.dark(Color.TRANSPARENT))
-        setContentView(R.layout.activity_story_editor)
+        setContentView(R.layout.activity_your_story)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // X: throw this story away and go back
-        findViewById<View>(R.id.iv_editor_close).setOnClickListener { finish() }
-
-        // Share to "Your story", "Close friends" or the teal arrow: show the posted story.
-        // finish() closes the editor, so Back from Your story doesn't come here again.
-        val shareIds = intArrayOf(R.id.ll_share_your_story, R.id.ll_share_close_friends, R.id.iv_editor_share)
-        for (id in shareIds) {
-            findViewById<View>(id).setOnClickListener {
-                startActivity(Intent(this, YourStoryActivity::class.java))
-                finish()
-            }
-        }
+        // X: close the story. Camera and editor already closed themselves,
+        // so this goes straight back to where the story was started (Home, Create post or Profile).
+        findViewById<View>(R.id.iv_your_story_close).setOnClickListener { finish() }
     }
 }
