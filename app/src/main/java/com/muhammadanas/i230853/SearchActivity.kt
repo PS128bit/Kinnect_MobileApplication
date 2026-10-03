@@ -3,6 +3,8 @@ package com.muhammadanas.i230853
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
+import android.view.View
+import android.content.Intent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -36,5 +38,11 @@ class SearchActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.iv_search_clear).setOnClickListener {
             searchBox.setText("")
         }
+
+        // Omar Farooq result opens his profile (no extras = Omar)
+        findViewById<View>(R.id.ll_person_1).setOnClickListener {
+            startActivity(Intent(this, OtherProfileActivity::class.java))
+        }
     }
+
 }

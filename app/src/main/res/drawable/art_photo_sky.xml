@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Daytime photo: pale blue sky, cream sun, blue waves. Square; use scaleType="centerCrop". -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="117dp"
+    android:height="117dp"
+    android:viewportWidth="234"
+    android:viewportHeight="234">
+
+    <path
+        android:fillColor="#CBD8E9"
+        android:pathData="M0,0h234v234h-234z" />
+
+    <path
+        android:fillColor="#F5EBD0"
+        android:pathData="M146,67a21,21 0,1 0,42 0a21,21 0,1 0,-42 0z" />
+
+    <path
+        android:fillColor="#96AAC8"
+        android:pathData="M0,158C25,140 45,129 70,129C110,129 140,165 175,165C200,165 220,148 234,134L234,234L0,234Z" />
+
+    <path
+        android:fillColor="#5A7495"
+        android:pathData="M0,195C25,180 50,171 78,171C110,171 150,207 190,207C210,207 224,196 234,186L234,234L0,234Z" />
+</vector>

@@ -10,8 +10,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 /*
- SCREEN 16: EDIT PROFILE
-*/
+  SCREEN 16 · Edit profile
+ */
 
 class EditProfileActivity : AppCompatActivity() {
 

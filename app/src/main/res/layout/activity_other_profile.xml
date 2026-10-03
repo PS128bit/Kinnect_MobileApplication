@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    17 · Other profile (someone else's profile)
+    Top bar fixed; cover, picture, buttons, mutual friends, details and photos scroll underneath.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".OtherProfileActivity">
+
+    <!-- Top bar: back arrow, name, search -->
+    <RelativeLayout
+        android:id="@+id/rl_other_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="10dp">
+
+        <ImageView
+            android:id="@+id/iv_other_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/cd_back"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tv_other_top_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:layout_toEndOf="@id/iv_other_back"
+            android:text="@string/name_omar_farooq"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_other_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/cd_search"
+            android:padding="9dp"
+            android:src="@drawable/ic_search"
+            app:tint="@color/text_primary" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- Everything under the top bar scrolls (ScrollView) -->
+    <ScrollView
+        android:id="@+id/sv_other_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!--
+                Cover + profile picture. RelativeLayout lets the picture sit in the middle
+                and hang 60dp below the cover.
+            -->
+            <RelativeLayout
+                android:id="@+id/rl_other_cover_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_other_cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="196dp"
+                    android:contentDescription="@string/cd_cover_photo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/art_cover_other" />
+
+                <!-- Picture: teal outline, white gap, then the green "OF" circle -->
+                <RelativeLayout
+                    android:id="@+id/rl_other_avatar"
+                    android:layout_width="156dp"
+                    android:layout_height="156dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/bg_profile_ring">
+
+                    <TextView
+                        android:id="@+id/tv_other_avatar"
+                        android:layout_width="142dp"
+                        android:layout_height="142dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_green"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:includeFontPadding="false"
+                        android:text="@string/initials_of"
+                        android:textColor="@color/white"
+                        android:textSize="48sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <!-- Everything below the cover has 16dp side margins -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!-- Name, counts and bio, all centred -->
+                <TextView
+                    android:id="@+id/tv_other_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/name_omar_farooq"
+                    android:textColor="@color/text_primary"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_other_counts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/other_counts"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_other_bio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="@string/other_bio"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp" />
+
+                <!--
+                    Buttons: Add friend is a little wider than Message
+                    (weights 155 : 143, the widths in the design), More is 44dp.
+                -->
+                <LinearLayout
+                    android:id="@+id/ll_other_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_add_friend"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="155"
+                        android:background="@drawable/bg_small_button"
+                        android:backgroundTint="@color/kinnect_teal"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_add_friend"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_person_add"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:id="@+id/tv_add_friend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/other_add_friend"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_message"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="143"
+                        android:background="@drawable/bg_small_button"
+                        android:backgroundTint="@color/pill_grey"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_chat"
+                            app:tint="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/other_message"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_other_more"
+                        android:layout_width="44dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_small_button"
+                        android:backgroundTint="@color/pill_grey"
+                        android:contentDescription="@string/cd_more_options"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/text_primary" />
+                </LinearLayout>
+
+                <!-- Mutual friends: three small overlapping circles (negative margin), then the text -->
+                <LinearLayout
+                    android:id="@+id/ll_mutual_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_maroon"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:includeFontPadding="false"
+                        android:text="@string/initials_ak"
+                        android:textColor="@color/white"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="-4dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_purple"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:includeFontPadding="false"
+                        android:text="@string/initials_lm"
+                        android:textColor="@color/white"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="-4dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_blue"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:includeFontPadding="false"
+                        android:text="@string/initials_zr"
+                        android:textColor="@color/white"
+                        android:textSize="8sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="11dp"
+                        android:layout_weight="1"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/other_mutual"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/divider" />
+
+                <!-- Details: icon + text rows, 32dp each -->
+                <LinearLayout
+                    android:id="@+id/ll_other_detail_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="7dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_work"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/other_work"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_other_detail_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_location"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/profile_lives"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_other_detail_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_clock"
+                        app:tint="@color/text_secondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:text="@string/other_joined"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <!-- Photos heading with a teal "See all" on the same baseline -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp">
+
+                    <TextView
+                        android:id="@+id/tv_other_photos_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/profile_section_photos"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_other_see_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/tv_other_photos_title"
+                        android:layout_alignParentEnd="true"
+                        android:text="@string/see_all"
+                        android:textColor="@color/kinnect_teal"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <!-- Three photos, equal width (weight 1 each), small round corners (clipToOutline) -->
+                <LinearLayout
+                    android:id="@+id/ll_other_photos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_other_photo_1"
+                        android:layout_width="0dp"
+                        android:layout_height="116dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag"
+                        android:clipToOutline="true"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_night" />
+
+                    <ImageView
+                        android:id="@+id/iv_other_photo_2"
+                        android:layout_width="0dp"
+                        android:layout_height="116dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag"
+                        android:clipToOutline="true"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_dusk" />
+
+                    <ImageView
+                        android:id="@+id/iv_other_photo_3"
+                        android:layout_width="0dp"
+                        android:layout_height="116dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_tag"
+                        android:clipToOutline="true"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sky" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

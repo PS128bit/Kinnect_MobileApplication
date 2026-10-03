@@ -7,13 +7,17 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 /*
- SCREEN 15: PROFILE
-*/
-
+  SCREEN 15 · Profile (your own profile)
+  Design: back / name / search top bar, sea-green cover with a camera button, big teal "JW"
+  picture with a white ring, name, friend count, bio, Add to story / Edit profile / More buttons,
+  Posts-Photos-Videos-Groups pills, Details list and Friends tiles.
+  Opened from: Home (composer avatar), Menu (profile card).
+ */
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var tvTopName: TextView
@@ -71,5 +75,25 @@ class ProfileActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
         }
+
+        // Friend tiles open that friend's profile
+        findViewById<View>(R.id.ll_friend_1).setOnClickListener {
+            openFriend(R.string.name_lina_marsh, R.string.initials_lm, R.color.avatar_purple)
+        }
+        findViewById<View>(R.id.ll_friend_2).setOnClickListener {
+            openFriend(R.string.name_aisha_khan, R.string.initials_ak, R.color.avatar_maroon)
+        }
+        findViewById<View>(R.id.ll_friend_3).setOnClickListener {
+            openFriend(R.string.name_omar_farooq, R.string.initials_of, R.color.avatar_green)
+        }
+    }
+
+    // Sends the friend's name, initials and circle colour to Other profile
+    private fun openFriend(name: Int, initials: Int, color: Int) {
+        val intent = Intent(this, OtherProfileActivity::class.java)
+        intent.putExtra(OtherProfileActivity.EXTRA_NAME, getString(name))
+        intent.putExtra(OtherProfileActivity.EXTRA_INITIALS, getString(initials))
+        intent.putExtra(OtherProfileActivity.EXTRA_AVATAR_COLOR, ContextCompat.getColor(this, color))
+        startActivity(intent)
     }
 }

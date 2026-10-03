@@ -247,6 +247,18 @@
     <string name="edit_phone_value">+92 300 1234567</string>
     <string name="edit_gender_value">Male</string>
 
+    <!-- SCREEN 17: OTHER PROFILE -->
+    <!-- Other profile -->
+    <string name="other_counts"><b><font color="#1C1B19">1,204</font></b> friends · <b><font color="#1C1B19">38</font></b> mutual</string>
+    <string name="other_bio">Night photographer. Karachi after dark.</string>
+    <string name="other_add_friend">Add friend</string>
+    <string name="other_request_sent">Request sent</string>
+    <string name="other_message">Message</string>
+    <string name="other_mutual">Friends with <b>Aisha Khan</b>, <b>Lina Marsh</b> and <b>36 others</b></string>
+    <string name="other_work">Photographer at <b>Studio Nocturne</b></string>
+    <string name="other_joined">Joined June 2017</string>
+    <string name="cd_other_photo">Photo</string>
+
     <!-- SCREEN 18: NOTIFICATIONS (This one is a bit mid too )-->
     <!-- 18 · Notifications -->
     <string name="notif_new">New</string>

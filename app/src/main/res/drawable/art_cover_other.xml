@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Omar's cover picture: night sky, a gold moon cut off at the top,
+    a slate-blue wave and a darker wave peeking out behind the profile picture.
+    Same wave shape as art_cover_me, different colours. Use scaleType="centerCrop".
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="390dp"
+    android:height="196dp"
+    android:viewportWidth="780"
+    android:viewportHeight="392">
+
+    <!-- Night sky -->
+    <path
+        android:fillColor="#2E3A4A"
+        android:pathData="M0,0h780v392h-780z" />
+
+    <!-- Moon -->
+    <path
+        android:fillColor="#E8C989"
+        android:pathData="M484.5,39.5a77,77 0,1 0,154 0a77,77 0,1 0,-154 0z" />
+
+    <!-- Slate wave -->
+    <path
+        android:fillColor="#465670"
+        android:pathData="M0,352C90,262 170,228 250,247C340,255 440,380 560,380C650,380 725,318 780,257L780,392L0,392Z" />
+
+    <!-- Dark wave at the bottom, mostly hidden behind the profile picture -->
+    <path
+        android:fillColor="#202731"
+        android:pathData="M170,392C250,372 450,368 548,392Z" />
+</vector>
