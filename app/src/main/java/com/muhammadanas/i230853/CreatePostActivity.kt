@@ -3,6 +3,7 @@ package com.muhammadanas.i230853
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.content.Intent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -47,5 +48,11 @@ class CreatePostActivity : AppCompatActivity() {
                 postText.setTextColor(ContextCompat.getColor(this, swatchColors[i]))
             }
         }
+
+        // Photo/video row opens the Photo picker
+        findViewById<View>(R.id.ll_option_photo).setOnClickListener {
+            startActivity(Intent(this, PhotoPickerActivity::class.java))
+        }
+
     }
 }

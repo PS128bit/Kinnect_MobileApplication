@@ -86,6 +86,10 @@
             android:name=".CreatePostActivity"
             android:exported="false"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".PhotoPickerActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

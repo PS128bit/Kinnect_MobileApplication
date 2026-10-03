@@ -162,6 +162,19 @@
     <string name="create_camera">Camera</string>
     <string name="create_event">Create event</string>
 
+    <!-- SCREEN 08: PHOTO PICKER -->
+    <!-- Photo picker -->
+    <string name="picker_recents">Recents</string>
+    <string name="picker_next">Next (2)</string>
+    <string name="picker_select_multiple">SELECT MULTIPLE</string>
+    <string name="picker_badge_1">1</string>
+    <string name="picker_badge_2">2</string>
+    <string name="picker_video_length">0:23</string>
+    <string name="picker_gallery">Gallery</string>
+    <string name="picker_photo">Photo</string>
+    <string name="picker_video">Video</string>
+    <string name="cd_expand">Expand preview</string>
+
     <!-- SCREEN 11: STORY VIEWER-->
     <!-- 11 · Story viewer -->
     <string name="cd_story_photo">Story photo</string>

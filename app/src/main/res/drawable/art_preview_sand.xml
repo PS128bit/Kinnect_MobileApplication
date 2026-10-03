@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Big preview on the Photo picker: the sand photo, wide. Use scaleType="centerCrop". -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="390dp"
+    android:height="330dp"
+    android:viewportWidth="780"
+    android:viewportHeight="660">
+
+    <path
+        android:fillColor="#E9D7BF"
+        android:pathData="M0,0h780v660h-780z" />
+
+    <path
+        android:fillColor="#FFF3DD"
+        android:pathData="M484,173a77,77 0,1 0,154 0a77,77 0,1 0,-154 0z" />
+
+    <path
+        android:fillColor="#C8A47E"
+        android:pathData="M0,486C70,420 140,379 220,379C310,379 420,514 560,514C660,514 730,440 780,392L780,660L0,660Z" />
+
+    <path
+        android:fillColor="#9E7B55"
+        android:pathData="M0,600C70,560 160,519 250,519C440,519 580,660 640,670C700,690 750,610 780,545L780,660L0,660Z" />
+</vector>
