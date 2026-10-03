@@ -91,11 +91,11 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".CameraActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".CameraActivity"
+            android:name=".StoryEditorActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

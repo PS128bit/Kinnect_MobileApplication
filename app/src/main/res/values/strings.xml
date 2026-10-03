@@ -189,6 +189,14 @@
     <string name="cd_effects">Effects</string>
     <string name="cd_open_gallery">Open gallery</string>
 
+    <!-- SCREEN 10: STORY EDITOR -->
+    <!-- Story editor -->
+    <string name="editor_sticker">Saturday plans</string>
+    <string name="editor_your_story">Your story</string>
+    <string name="editor_close_friends">Close friends</string>
+    <string name="cd_music">Music</string>
+    <string name="cd_share_story">Share story</string>
+
     <!-- SCREEN 11: STORY VIEWER-->
     <!-- 11 · Story viewer -->
     <string name="cd_story_photo">Story photo</string>

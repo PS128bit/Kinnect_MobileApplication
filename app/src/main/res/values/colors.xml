@@ -53,4 +53,6 @@
 
     <color name="camera_mode_grey">#D2CFCA</color>
 
+    <color name="story_pill">#2A2925</color>
+
 </resources>
