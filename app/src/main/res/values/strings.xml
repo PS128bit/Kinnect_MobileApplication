@@ -226,6 +226,27 @@
     <string name="profile_friends_plain">834 friends</string>
     <string name="profile_see_all_friends">See all friends</string>
 
+    <!-- SCREEN 16: EDIT PROFILE-->
+    <!-- Edit profile -->
+    <string name="edit_save">Save</string>
+    <string name="edit_picture">Profile picture</string>
+    <string name="edit_cover">Cover photo</string>
+    <string name="edit_link">Edit</string>
+    <string name="edit_label_name">Name</string>
+    <string name="edit_label_username">Username</string>
+    <string name="edit_label_website">Website</string>
+    <string name="edit_label_bio">Bio</string>
+    <string name="edit_label_email">Email</string>
+    <string name="edit_label_phone">Phone</string>
+    <string name="edit_label_gender">Gender</string>
+    <string name="edit_username_value">jacob.west</string>
+    <string name="edit_bio_value">Digital goodies designer.</string>
+    <string name="edit_professional_mode">Switch to professional mode</string>
+    <string name="edit_private_info">Private information</string>
+    <string name="edit_email_value">jacob.west@mail.com</string>
+    <string name="edit_phone_value">+92 300 1234567</string>
+    <string name="edit_gender_value">Male</string>
+
     <!-- SCREEN 18: NOTIFICATIONS (This one is a bit mid too )-->
     <!-- 18 · Notifications -->
     <string name="notif_new">New</string>
