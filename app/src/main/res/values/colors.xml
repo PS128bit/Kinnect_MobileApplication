@@ -51,4 +51,6 @@
 
     <color name="clear_grey">#AAA198</color>        <!-- clear (X) circle in the search bar -->
 
+    <color name="camera_mode_grey">#D2CFCA</color>
+
 </resources>

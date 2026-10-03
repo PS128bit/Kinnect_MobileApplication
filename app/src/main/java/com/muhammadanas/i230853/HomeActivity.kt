@@ -65,6 +65,11 @@ class HomeActivity : AppCompatActivity() {
             openStory(R.string.name_hamza_ali, R.string.initials_ha,
                 R.color.avatar_brown, R.drawable.img_story_3, false)
         }
+
+        // "Create story" card opens the Camera
+        findViewById<View>(R.id.rl_create_story).setOnClickListener {
+            startActivity(Intent(this, CameraActivity::class.java))
+        }
     }
 
     private fun openComments() {

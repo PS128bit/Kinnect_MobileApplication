@@ -54,5 +54,10 @@ class CreatePostActivity : AppCompatActivity() {
             startActivity(Intent(this, PhotoPickerActivity::class.java))
         }
 
+        // Camera row opens the Camera
+        findViewById<View>(R.id.ll_option_camera).setOnClickListener {
+            startActivity(Intent(this, CameraActivity::class.java))
+        }
+
     }
 }

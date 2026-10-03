@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    What the camera "sees": pale green sky, a big pale sun cut off on the right,
+    and two green hills. Tall picture; use scaleType="centerCrop".
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="374dp"
+    android:height="726dp"
+    android:viewportWidth="748"
+    android:viewportHeight="1452">
+
+    <!-- Sky -->
+    <path
+        android:fillColor="#CDDAC0"
+        android:pathData="M0,0h748v1452h-748z" />
+
+    <!-- Sun -->
+    <path
+        android:fillColor="#F3EBC7"
+        android:pathData="M548,435.5a145.5,145.5 0,1 0,291 0a145.5,145.5 0,1 0,-291 0z" />
+
+    <!-- Light green hill -->
+    <path
+        android:fillColor="#93AD7E"
+        android:pathData="M0,819C30,815 60,813 100,816C260,826 400,1000 560,1048C620,1066 680,1072 748,1062L748,1452L0,1452Z" />
+
+    <!-- Dark green hill -->
+    <path
+        android:fillColor="#627F4F"
+        android:pathData="M0,1088C40,1081 80,1078 120,1078C380,1080 480,1180 600,1234C660,1262 710,1280 748,1290L748,1452L0,1452Z" />
+</vector>

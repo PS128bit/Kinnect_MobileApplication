@@ -175,6 +175,20 @@
     <string name="picker_video">Video</string>
     <string name="cd_expand">Expand preview</string>
 
+    <!-- SCREEN 09: CAMERA -->
+    <!-- Camera -->
+    <string name="camera_mode_text">TEXT</string>
+    <string name="camera_mode_live">LIVE</string>
+    <string name="camera_mode_story">STORY</string>
+    <string name="camera_mode_post">POST</string>
+    <string name="camera_mode_boomerang">BOOMERANG</string>
+    <string name="cd_brightness">Brightness</string>
+    <string name="cd_flash">Flash</string>
+    <string name="cd_shutter">Take photo</string>
+    <string name="cd_flip_camera">Switch camera</string>
+    <string name="cd_effects">Effects</string>
+    <string name="cd_open_gallery">Open gallery</string>
+
     <!-- SCREEN 11: STORY VIEWER-->
     <!-- 11 · Story viewer -->
     <string name="cd_story_photo">Story photo</string>

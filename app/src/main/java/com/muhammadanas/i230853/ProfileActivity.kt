@@ -13,10 +13,6 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 15 · Profile (your own profile)
-  Design: back / name / search top bar, sea-green cover with a camera button, big teal "JW"
-  picture with a white ring, name, friend count, bio, Add to story / Edit profile / More buttons,
-  Posts-Photos-Videos-Groups pills, Details list and Friends tiles.
-  Opened from: Home (composer avatar), Menu (profile card).
  */
 class ProfileActivity : AppCompatActivity() {
 
@@ -86,6 +82,12 @@ class ProfileActivity : AppCompatActivity() {
         findViewById<View>(R.id.ll_friend_3).setOnClickListener {
             openFriend(R.string.name_omar_farooq, R.string.initials_of, R.color.avatar_green)
         }
+
+        // "Add to story" opens the Camera
+        findViewById<View>(R.id.ll_add_to_story).setOnClickListener {
+            startActivity(Intent(this, CameraActivity::class.java))
+        }
+
     }
 
     // Sends the friend's name, initials and circle colour to Other profile

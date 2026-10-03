@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Camera viewfinder: rounded box (16dp corners); clipToOutline cuts the picture to it -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/camera_black" />
+    <corners android:radius="16dp" />
+</shape>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    09 · Camera
+    Dark screen: rounded viewfinder with buttons on top, camera modes underneath.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/camera_black"
+    android:orientation="vertical"
+    tools:context=".CameraActivity">
+
+    <!--
+        Viewfinder: rounded box that fills the screen above the modes (layout_weight="1").
+        clipToOutline cuts the picture to the round corners; buttons sit on top (RelativeLayout).
+    -->
+    <RelativeLayout
+        android:id="@+id/rl_camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_camera_view"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:id="@+id/iv_camera_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/art_camera_view" />
+
+        <!-- Top corners: brightness (left) and close (right), see-through dark circles -->
+        <ImageView
+            android:id="@+id/iv_camera_brightness"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/scrim"
+            android:contentDescription="@string/cd_brightness"
+            android:padding="11dp"
+            android:src="@drawable/ic_brightness"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_camera_close"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/scrim"
+            android:contentDescription="@string/cd_close"
+            android:padding="11dp"
+            android:src="@drawable/ic_close"
+            app:tint="@color/white" />
+
+        <!--
+            Bottom controls: gallery, flash, shutter, switch camera, effects.
+            The empty Views with layout_weight="1" share the space between them equally.
+        -->
+        <LinearLayout
+            android:id="@+id/ll_camera_controls"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="21dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <!-- Last photo from the gallery, with a white border -->
+            <ImageView
+                android:id="@+id/iv_camera_gallery"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_thumb_border"
+                android:clipToOutline="true"
+                android:contentDescription="@string/cd_open_gallery"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/art_photo_sea" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iv_camera_flash"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/scrim"
+                android:contentDescription="@string/cd_flash"
+                android:padding="11dp"
+                android:src="@drawable/ic_flash"
+                app:tint="@color/white" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Shutter: white circle inside a see-through ring -->
+            <View
+                android:id="@+id/v_camera_shutter"
+                android:layout_width="84dp"
+                android:layout_height="84dp"
+                android:background="@drawable/bg_shutter"
+                android:contentDescription="@string/cd_shutter" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/iv_camera_flip"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/scrim"
+                android:contentDescription="@string/cd_flip_camera"
+                android:padding="10dp"
+                android:src="@drawable/ic_flip_camera"
+                app:tint="@color/white" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- Effects button with a small orange "new" dot on its corner -->
+            <RelativeLayout
+                android:id="@+id/rl_camera_effects"
+                android:layout_width="44dp"
+                android:layout_height="44dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/scrim"
+                    android:contentDescription="@string/cd_effects"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_emoji"
+                    app:tint="@color/white" />
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="1dp"
+                    android:background="@drawable/bg_effects_dot" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Camera modes; STORY is the active one -->
+    <LinearLayout
+        android:id="@+id/ll_camera_modes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="28dp"
+        android:orientation="horizontal">
+
+        <!-- Mode -->
+        <LinearLayout
+            android:id="@+id/ll_mode_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.1"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@string/camera_mode_text"
+                android:textColor="@color/camera_mode_grey"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_mode_line_text"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <!-- Mode -->
+        <LinearLayout
+            android:id="@+id/ll_mode_live"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mode_live"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.1"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@string/camera_mode_live"
+                android:textColor="@color/camera_mode_grey"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_mode_line_live"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <!-- Active mode: white text and a white line under it -->
+        <LinearLayout
+            android:id="@+id/ll_mode_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mode_story"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.1"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@string/camera_mode_story"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_mode_line_story"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <!-- Mode -->
+        <LinearLayout
+            android:id="@+id/ll_mode_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mode_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.1"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@string/camera_mode_post"
+                android:textColor="@color/camera_mode_grey"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_mode_line_post"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <!-- Mode -->
+        <LinearLayout
+            android:id="@+id/ll_mode_boomerang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_mode_boomerang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.1"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:text="@string/camera_mode_boomerang"
+                android:textColor="@color/camera_mode_grey"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_mode_line_boomerang"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
