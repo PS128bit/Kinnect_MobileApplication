@@ -35,6 +35,14 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
+        // Composer pill and photo icon open Create post
+        findViewById<View>(R.id.tv_composer_prompt).setOnClickListener {
+            startActivity(Intent(this, CreatePostActivity::class.java))
+        }
+        findViewById<View>(R.id.iv_composer_photo).setOnClickListener {
+            startActivity(Intent(this, CreatePostActivity::class.java))
+        }
+
         // "Comment" button and "86 comments · 12 shares" -> Comments
         findViewById<View>(R.id.ll_action_comment).setOnClickListener { openComments() }
         findViewById<View>(R.id.tv_post_counts).setOnClickListener { openComments() }

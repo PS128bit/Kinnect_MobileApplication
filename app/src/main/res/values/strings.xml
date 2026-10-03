@@ -145,6 +145,23 @@
     <string name="cd_emoji">Emoji</string>
     <string name="cd_send">Send</string>
 
+    <!-- SCREEN 07: CREATE POST-->
+    <!-- Create post -->
+    <string name="create_post_title">Create post</string>
+    <string name="create_post_button">Post</string>
+    <string name="create_public">Public</string>
+    <string name="create_album">Album</string>
+    <string name="create_hint">What’s on your mind?</string>
+    <string name="create_sample_text">Weekend plan: coffee, sketching, and absolutely no email.</string>
+    <string name="create_swatch_plain">Aa</string>
+    <string name="create_photo_video">Photo/video</string>
+    <string name="create_tag_people">Tag people</string>
+    <string name="create_feeling">Feeling/activity</string>
+    <string name="create_check_in">Check in</string>
+    <string name="create_live_video">Live video</string>
+    <string name="create_camera">Camera</string>
+    <string name="create_event">Create event</string>
+
     <!-- SCREEN 11: STORY VIEWER-->
     <!-- 11 · Story viewer -->
     <string name="cd_story_photo">Story photo</string>
