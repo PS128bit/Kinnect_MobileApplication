@@ -206,6 +206,26 @@
     <string name="mutual_3">3 mutual friends</string>
     <string name="mutual_21">21 mutual friends</string>
 
+    <!-- SCREEN 15: PROFILE -->
+    <!-- Profile -->
+    <string name="cd_cover_photo">Cover photo</string>
+    <string name="cd_change_cover">Change cover photo</string>
+    <string name="cd_change_picture">Change profile picture</string>
+    <string name="profile_friend_count"><b><font color="#1C1B19">834</font></b> friends</string>
+    <string name="profile_bio">Digital goodies designer. Everything is designed.</string>
+    <string name="profile_add_to_story">Add to story</string>
+    <string name="profile_edit">Edit profile</string>
+    <string name="profile_section_photos">Photos</string>
+    <string name="profile_section_videos">Videos</string>
+    <string name="profile_details">Details</string>
+    <string name="profile_work">Designer at <b>Pixsellz</b></string>
+    <string name="profile_studied">Studied at <b>FAST-NUCES</b></string>
+    <string name="profile_lives">Lives in <b>Karachi, Pakistan</b></string>
+    <string name="profile_joined">Joined March 2019</string>
+    <string name="profile_find_friends">Find friends</string>
+    <string name="profile_friends_plain">834 friends</string>
+    <string name="profile_see_all_friends">See all friends</string>
+
     <!-- SCREEN 18: NOTIFICATIONS (This one is a bit mid too )-->
     <!-- 18 · Notifications -->
     <string name="notif_new">New</string>

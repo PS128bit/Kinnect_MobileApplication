@@ -29,6 +29,11 @@ class MenuActivity : AppCompatActivity() {
         // Top tab bar
         TabBar.setup(this, MenuActivity::class.java)
 
+        // Profile card at the top of Menu opens your Profile
+        findViewById<View>(R.id.rl_menu_profile).setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
         // Shortcut tiles that lead to existing tab screens
         findViewById<View>(R.id.ll_shortcut_friends).setOnClickListener {
             openTab(FriendsActivity::class.java)

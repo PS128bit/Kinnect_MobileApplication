@@ -30,6 +30,11 @@ class HomeActivity : AppCompatActivity() {
         // Top tab bar
         TabBar.setup(this, HomeActivity::class.java)
 
+        // Composer avatar (JW) opens your Profile
+        findViewById<View>(R.id.tv_composer_avatar).setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
         // "Comment" button and "86 comments · 12 shares" -> Comments
         findViewById<View>(R.id.ll_action_comment).setOnClickListener { openComments() }
         findViewById<View>(R.id.tv_post_counts).setOnClickListener { openComments() }
