@@ -1,5 +1,7 @@
 # Kinnect — Roadmap
 
+**Progress:** 20 of 23 screens done · Phases 0–5 complete · next: Phase 6 (Messaging)
+
 ## Navigation Flow
 
 - **Splash** opens **Log in** automatically.
@@ -57,42 +59,42 @@ flowchart TD
 ## Build Order
 
 ### Phase 0 · Foundation
-- [ ] Colours (`colors.xml`, primary teal `#0B5F63`)
-- [ ] Theme without action bar
-- [ ] Shape drawables (buttons, input boxes, circle avatars, pills)
-- [ ] Icons (Vector Assets)
-- [ ] Logo and placeholder images
+- [x] Colours (`colors.xml`, primary teal `#0B5F63`)
+- [x] Theme without action bar
+- [x] Shape drawables (buttons, input boxes, circle avatars, pills)
+- [x] Icons (Vector Assets)
+- [x] Logo and placeholder images
 
 ### Phase 1 · Auth
-- [ ] 01 Splash
-- [ ] 02 Log in
-- [ ] 03 Sign up
+- [x] 01 Splash
+- [x] 02 Log in
+- [x] 03 Sign up
 
 ### Phase 2 · Top Tabs
-- [ ] Top tab bar
-- [ ] 04 Home feed
-- [ ] 14 Friends
-- [ ] 23 Marketplace
-- [ ] 18 Notifications
-- [ ] 19 Menu
+- [x] Top tab bar
+- [x] 04 Home feed
+- [x] 14 Friends
+- [x] 23 Marketplace
+- [x] 18 Notifications
+- [x] 19 Menu
 
 ### Phase 3 · Opened from Home
-- [ ] 06 Comments
-- [ ] 05 Reaction picker
-- [ ] 11 Story viewer
-- [ ] 13 Search
+- [x] 06 Comments
+- [x] 05 Reaction picker
+- [x] 11 Story viewer
+- [x] 13 Search
 
 ### Phase 4 · Profiles
-- [ ] 15 Profile
-- [ ] 16 Edit profile
-- [ ] 17 Other profile
+- [x] 15 Profile
+- [x] 16 Edit profile
+- [x] 17 Other profile
 
 ### Phase 5 · Create
-- [ ] 07 Create post
-- [ ] 08 Photo picker
-- [ ] 09 Camera
-- [ ] 10 Story editor
-- [ ] 12 Your story
+- [x] 07 Create post
+- [x] 08 Photo picker
+- [x] 09 Camera
+- [x] 10 Story editor
+- [x] 12 Your story
 
 ### Phase 6 · Messaging
 - [ ] 20 Chats
