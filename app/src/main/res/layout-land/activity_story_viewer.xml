@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    LANDSCAPE version (res/layout-land): same screen, but the caption sits higher (130dp) so it stays visible.
+    11 · Story viewer
+    Dark full-screen story: rounded story card on top, message bar at the bottom.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/camera_black"
+    android:orientation="vertical"
+    tools:context=".StoryViewerActivity">
+
+    <!--
+        Story card: fills all the space above the bottom bar (height 0dp + layout_weight="1"),
+        with 8dp around it and rounded corners (clipToOutline="true").
+    -->
+    <RelativeLayout
+        android:id="@+id/rl_story_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_story_viewer"
+        android:clipToOutline="true">
+
+        <!-- Story photo, cut to the card's rounded corners -->
+        <ImageView
+            android:id="@+id/iv_story_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/cd_story_photo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_story_1" />
+
+        <!-- Dark fade at the top so the white bars and text stay readable -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:background="@drawable/bg_story_top_fade" />
+
+        <!-- Progress bars: one per story (layout_weight="1" each, 4dp gaps) -->
+        <LinearLayout
+            android:id="@+id/ll_story_progress"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="horizontal">
+
+            <!-- Watched -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill" />
+
+            <!-- Watched -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill" />
+
+            <!-- Current story: half watched (white half on a dim track) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/story_bar_dim"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_pill" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <!-- Not watched yet -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_pill"
+                android:backgroundTint="@color/story_bar_dim" />
+        </LinearLayout>
+
+        <!-- Header: avatar, name + time, "..." and close -->
+        <RelativeLayout
+            android:id="@+id/rl_story_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_story_progress"
+            android:layout_marginTop="12dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:id="@+id/tv_story_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/avatar_green"
+                android:gravity="center"
+                android:importantForAccessibility="no"
+                android:text="@string/initials_of"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <!-- Close: returns to Home -->
+            <ImageView
+                android:id="@+id/iv_story_close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="-4dp"
+                android:contentDescription="@string/cd_close"
+                android:padding="8dp"
+                android:src="@drawable/ic_close"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/iv_story_more"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="30dp"
+                android:layout_toStartOf="@id/iv_story_close"
+                android:contentDescription="@string/cd_more_options"
+                android:src="@drawable/ic_more"
+                app:tint="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toStartOf="@id/iv_story_more"
+                android:layout_toEndOf="@id/tv_story_avatar"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_story_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@string/name_omar_farooq"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_story_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/story_time_5h"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="3dp"
+                        android:contentDescription="@string/cd_public"
+                        android:src="@drawable/ic_globe"
+                        app:tint="@color/white" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- "Karachi nights" sticker: white rounded label, tilted with rotation -->
+        <TextView
+            android:id="@+id/tv_story_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="130dp"
+            android:background="@drawable/bg_sticker"
+            android:paddingStart="18dp"
+            android:paddingTop="9dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="9dp"
+            android:rotation="-3"
+            android:text="@string/karachi_nights"
+            android:textColor="@color/text_primary"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Bottom bar: "Send message…" box and three quick reactions -->
+    <LinearLayout
+        android:id="@+id/ll_story_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="18dp">
+
+        <!-- layout_weight="1": the message box takes the space left of the reactions -->
+        <EditText
+            android:id="@+id/et_story_message"
+            android:layout_width="0dp"
+            android:layout_height="47dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_outline_pill"
+            android:hint="@string/send_message"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:paddingStart="20dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/text_muted"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/iv_story_like"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="12dp"
+            android:contentDescription="@string/reaction_like"
+            android:src="@drawable/react_like" />
+
+        <ImageView
+            android:id="@+id/iv_story_love"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="18dp"
+            android:contentDescription="@string/reaction_love"
+            android:src="@drawable/react_love" />
+
+        <ImageView
+            android:id="@+id/iv_story_haha"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="18dp"
+            android:contentDescription="@string/reaction_haha"
+            android:src="@drawable/react_haha" />
+    </LinearLayout>
+
+</LinearLayout>

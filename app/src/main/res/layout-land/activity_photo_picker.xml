@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    LANDSCAPE version (res/layout-land): same screen, but a shorter preview (150dp) so the photo grid still shows.
+    08 · Photo picker
+    Top bar and big preview at the top, a scrolling grid of photos, Gallery / Photo / Video tabs at the bottom.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".PhotoPickerActivity">
+
+    <!-- Top bar: Cancel, "Recents" with a small arrow in the middle, Next (2) in teal -->
+    <RelativeLayout
+        android:id="@+id/rl_picker_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <TextView
+            android:id="@+id/tv_picker_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/cancel"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_picker_album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/picker_recents"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="4dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_chevron_down"
+                app:tint="@color/text_primary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_picker_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/picker_next"
+            android:textColor="@color/kinnect_teal"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Big preview of the chosen photo, with Expand (left) and Select multiple (right) on top -->
+    <RelativeLayout
+        android:id="@+id/rl_picker_preview"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <ImageView
+            android:id="@+id/iv_picker_preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/cd_other_photo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/art_preview_sand" />
+
+        <ImageView
+            android:id="@+id/iv_picker_expand"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_dark_circle"
+            android:contentDescription="@string/cd_expand"
+            android:padding="9dp"
+            android:src="@drawable/ic_fullscreen"
+            app:tint="@color/white" />
+
+        <!-- Select multiple: teal pill with icon + capital letters -->
+        <LinearLayout
+            android:id="@+id/ll_select_multiple"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_pill"
+            android:backgroundTint="@color/kinnect_teal"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_select_multiple"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:letterSpacing="0.05"
+                android:text="@string/picker_select_multiple"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Photo grid scrolls; layout_weight="1" fills the space between preview and tabs -->
+    <ScrollView
+        android:id="@+id/sv_picker_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp">
+
+            <!-- Row 1: 4 square photos, equal width (weight 1 each), 2dp gaps -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_1"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sand" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="visible" />
+
+                    <!-- Selected first: numbered teal badge -->
+                    <TextView
+                        android:id="@+id/tv_pick_badge_1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_badge"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/picker_badge_1"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_2"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sea" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_3"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_dusk" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_4"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sky" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- Row 2: 4 square photos, equal width (weight 1 each), 2dp gaps -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_5"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_meadow" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_6"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_rose" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <!-- Selected second: numbered teal badge -->
+                    <TextView
+                        android:id="@+id/tv_pick_badge_6"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_badge"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/picker_badge_2"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_7"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_night" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <!-- Video: length in the bottom-right corner -->
+                    <TextView
+                        android:id="@+id/tv_pick_duration_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="7dp"
+                        android:text="@string/picker_video_length"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_8"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sea" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- Row 3: 4 square photos, equal width (weight 1 each), 2dp gaps -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_9"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_dusk" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_10"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sand" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_11"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_meadow" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_12"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sky" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+            </LinearLayout>
+            <!-- Row 4: 4 square photos, equal width (weight 1 each), 2dp gaps -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_13"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_rose" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_14"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_night" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_15"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sky" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pick_16"
+                    android:layout_width="0dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_pick_16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/cd_other_photo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/art_photo_sand" />
+
+                    <!-- Teal frame: shows on the photo that is in the big preview -->
+                    <View
+                        android:id="@+id/v_pick_frame_16"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_selected_frame"
+                        android:visibility="gone" />
+
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_select_ring" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- Bottom tabs: Gallery (active), Photo, Video - equal width -->
+    <LinearLayout
+        android:id="@+id/ll_picker_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_picker_tab_gallery"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/picker_gallery"
+                android:textColor="@color/kinnect_teal"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- Teal line marks the active tab -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/kinnect_teal" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_picker_tab_photo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/picker_photo"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_picker_tab_video"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/picker_video"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
