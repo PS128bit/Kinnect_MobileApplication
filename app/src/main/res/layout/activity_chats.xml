@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    20 · Chats
+    Top bar and search fixed; notes row and chat list scroll; Chats / People / Stories tabs at the bottom.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ChatsActivity">
+
+    <!-- Top bar: back arrow, big "Chats" title, round grey New message button -->
+    <RelativeLayout
+        android:id="@+id/rl_chats_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="13dp">
+
+        <ImageView
+            android:id="@+id/iv_chats_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/cd_back"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:layout_toEndOf="@id/iv_chats_back"
+            android:text="@string/chats_title"
+            android:textColor="@color/text_primary"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_chats_new"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/pill_grey"
+            android:contentDescription="@string/cd_new_message"
+            android:padding="10dp"
+            android:src="@drawable/ic_edit"
+            app:tint="@color/text_primary" />
+    </RelativeLayout>
+
+    <!-- Search box: grey pill with the search icon and a hint -->
+    <LinearLayout
+        android:id="@+id/ll_chats_search"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_pill"
+        android:backgroundTint="@color/pill_grey"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_search"
+            app:tint="@color/text_secondary" />
+
+        <EditText
+            android:id="@+id/et_chats_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/cd_search"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:padding="0dp"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Notes and the chat list scroll; layout_weight="1" fills the space above the tabs -->
+    <ScrollView
+        android:id="@+id/sv_chats"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="12dp">
+
+            <!-- Notes / active friends: scrolls sideways (HorizontalScrollView), 74dp per person -->
+            <HorizontalScrollView
+                android:id="@+id/hsv_chats_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clipToPadding="false"
+                android:paddingStart="11dp"
+                android:paddingEnd="11dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Your note: grey circle with a plus -->
+                    <LinearLayout
+                        android:id="@+id/ll_note_yours"
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/pill_grey"
+                            android:contentDescription="@string/chats_your_note"
+                            android:padding="16dp"
+                            android:src="@drawable/ic_add"
+                            app:tint="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@string/chats_your_note"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Aisha -->
+                    <LinearLayout
+                        android:id="@+id/ll_note_aisha"
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="56dp"
+                            android:layout_height="56dp">
+
+                            <TextView
+                                android:id="@+id/tv_note_avatar_aisha"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_maroon"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_ak"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_alignEnd="@id/tv_note_avatar_aisha"
+                                android:layout_alignBottom="@id/tv_note_avatar_aisha"
+                                android:layout_marginEnd="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:background="@drawable/bg_online_dot" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@string/chats_first_aisha"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Omar -->
+                    <LinearLayout
+                        android:id="@+id/ll_note_omar"
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="56dp"
+                            android:layout_height="56dp">
+
+                            <TextView
+                                android:id="@+id/tv_note_avatar_omar"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_green"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_of"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_alignEnd="@id/tv_note_avatar_omar"
+                                android:layout_alignBottom="@id/tv_note_avatar_omar"
+                                android:layout_marginEnd="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:background="@drawable/bg_online_dot" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@string/chats_first_omar"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Sara -->
+                    <LinearLayout
+                        android:id="@+id/ll_note_sara"
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="56dp"
+                            android:layout_height="56dp">
+
+                            <TextView
+                                android:id="@+id/tv_note_avatar_sara"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_indigo"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_si"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_alignEnd="@id/tv_note_avatar_sara"
+                                android:layout_alignBottom="@id/tv_note_avatar_sara"
+                                android:layout_marginEnd="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:background="@drawable/bg_online_dot" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@string/chats_first_sara"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <!-- Hamza -->
+                    <LinearLayout
+                        android:id="@+id/ll_note_hamza"
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="56dp"
+                            android:layout_height="56dp">
+
+                            <TextView
+                                android:id="@+id/tv_note_avatar_hamza"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_brown"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_ha"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:layout_alignEnd="@id/tv_note_avatar_hamza"
+                                android:layout_alignBottom="@id/tv_note_avatar_hamza"
+                                android:layout_marginEnd="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:background="@drawable/bg_online_dot" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:maxLines="1"
+                            android:text="@string/chats_first_hamza"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Chat list: 72dp rows -->
+            <LinearLayout
+                android:id="@+id/ll_chat_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:orientation="vertical">
+
+                <!-- Chat 1 -->
+                <LinearLayout
+                    android:id="@+id/ll_chat_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <!-- Picture with a green "online" dot on its corner -->
+                    <RelativeLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp">
+
+                        <TextView
+                            android:id="@+id/tv_chat_avatar_1"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/avatar_maroon"
+                            android:gravity="center"
+                            android:importantForAccessibility="no"
+                            android:text="@string/initials_ak"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:layout_alignEnd="@id/tv_chat_avatar_1"
+                            android:layout_alignBottom="@id/tv_chat_avatar_1"
+                            android:layout_marginEnd="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@drawable/bg_online_dot" />
+                    </RelativeLayout>
+
+                    <!-- layout_weight="1": name and last message take the middle -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:maxLines="1"
+                            android:text="@string/name_aisha_khan"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/chats_msg_aisha"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Unread: small teal dot -->
+                    <View
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/kinnect_teal" />
+                </LinearLayout>
+
+                <!-- Chat 2 -->
+                <LinearLayout
+                    android:id="@+id/ll_chat_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <!--
+                        Group picture: MC circle at the top right, ZR circle at the bottom left
+                        on top of it, with a white ring (white circle behind it, 2dp bigger all round).
+                    -->
+                    <RelativeLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp">
+
+                        <TextView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/avatar_olive"
+                            android:gravity="center"
+                            android:importantForAccessibility="no"
+                            android:text="@string/initials_mc"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <RelativeLayout
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/white">
+
+                            <TextView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/bg_circle"
+                                android:backgroundTint="@color/avatar_blue"
+                                android:gravity="center"
+                                android:importantForAccessibility="no"
+                                android:text="@string/initials_zr"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <!-- layout_weight="1": name and last message take the middle -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:maxLines="1"
+                            android:text="@string/chats_design_crew"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/chats_msg_design_crew"
+                            android:textColor="@color/text_primary"
+                            android:textStyle="bold"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Unread: small teal dot -->
+                    <View
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/kinnect_teal" />
+                </LinearLayout>
+
+                <!-- Chat 3 -->
+                <LinearLayout
+                    android:id="@+id/ll_chat_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_purple"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="@string/initials_lm"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- layout_weight="1": name and last message take the middle -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:maxLines="1"
+                            android:text="@string/name_lina_marsh"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/chats_msg_lina"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Seen: tiny circle in the friend's colour -->
+                    <View
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_maroon" />
+                </LinearLayout>
+
+                <!-- Chat 4 -->
+                <LinearLayout
+                    android:id="@+id/ll_chat_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <!-- Picture with a green "online" dot on its corner -->
+                    <RelativeLayout
+                        android:layout_width="56dp"
+                        android:layout_height="56dp">
+
+                        <TextView
+                            android:id="@+id/tv_chat_avatar_4"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/avatar_green"
+                            android:gravity="center"
+                            android:importantForAccessibility="no"
+                            android:text="@string/initials_of"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            android:layout_alignEnd="@id/tv_chat_avatar_4"
+                            android:layout_alignBottom="@id/tv_chat_avatar_4"
+                            android:layout_marginEnd="1dp"
+                            android:layout_marginBottom="1dp"
+                            android:background="@drawable/bg_online_dot" />
+                    </RelativeLayout>
+
+                    <!-- layout_weight="1": name and last message take the middle -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:maxLines="1"
+                            android:text="@string/name_omar_farooq"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/chats_msg_omar"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Chat 5 -->
+                <LinearLayout
+                    android:id="@+id/ll_chat_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_purple"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="@string/initials_ba"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- layout_weight="1": name and last message take the middle -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:maxLines="1"
+                            android:text="@string/name_bilal_ahmed"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/chats_msg_bilal"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Chat 6 -->
+                <LinearLayout
+                    android:id="@+id/ll_chat_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/avatar_green"
+                        android:gravity="center"
+                        android:importantForAccessibility="no"
+                        android:text="@string/initials_nf"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <!-- layout_weight="1": name and last message take the middle -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-medium"
+                            android:maxLines="1"
+                            android:text="@string/name_noor_fatima"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="@string/chats_msg_noor"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- Bottom tabs: Chats (active), People, Stories - equal width -->
+    <LinearLayout
+        android:id="@+id/ll_chats_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_chats_tab_chats"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_chat"
+                app:tint="@color/kinnect_teal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/chats_title"
+                android:textColor="@color/kinnect_teal"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_chats_tab_people"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_friends"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/chats_tab_people"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_chats_tab_stories"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_create_reel"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/chats_tab_stories"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

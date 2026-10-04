@@ -102,6 +102,14 @@
             android:name=".YourStoryActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ChatsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>

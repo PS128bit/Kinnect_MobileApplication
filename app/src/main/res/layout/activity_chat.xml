@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    21 · Chat
+    Top bar fixed; the conversation scrolls; the message bar stays at the bottom.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ChatActivity">
+
+    <!-- Top bar: back, picture with online dot, name and status, then call / video / info -->
+    <LinearLayout
+        android:id="@+id/ll_chat_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="6dp"
+        android:paddingEnd="4dp">
+
+        <ImageView
+            android:id="@+id/iv_chat_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/cd_back"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/kinnect_teal" />
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/tv_chat_header_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/avatar_maroon"
+                android:gravity="center"
+                android:importantForAccessibility="no"
+                android:text="@string/initials_ak"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:layout_alignEnd="@id/tv_chat_header_avatar"
+                android:layout_alignBottom="@id/tv_chat_header_avatar"
+                android:background="@drawable/bg_online_dot" />
+        </RelativeLayout>
+
+        <!-- layout_weight="1": name and status fill the space before the icons -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_chat_header_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/name_aisha_khan"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_active_now"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_chat_call"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/cd_voice_call"
+            android:padding="12dp"
+            android:src="@drawable/ic_call"
+            app:tint="@color/kinnect_teal" />
+
+        <ImageView
+            android:id="@+id/iv_chat_video"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/cd_video_call"
+            android:padding="12dp"
+            android:src="@drawable/ic_videocam"
+            app:tint="@color/kinnect_teal" />
+
+        <ImageView
+            android:id="@+id/iv_chat_info"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/cd_chat_info"
+            android:padding="12dp"
+            android:src="@drawable/ic_info"
+            app:tint="@color/kinnect_teal" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- Conversation scrolls; layout_weight="1" fills the space between top bar and message bar -->
+    <ScrollView
+        android:id="@+id/sv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <!-- Intro: big picture, name and how you know each other -->
+            <TextView
+                android:id="@+id/tv_chat_intro_avatar"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="17dp"
+                android:background="@drawable/bg_circle"
+                android:backgroundTint="@color/avatar_maroon"
+                android:gravity="center"
+                android:importantForAccessibility="no"
+                android:text="@string/initials_ak"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_chat_intro_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="9dp"
+                android:text="@string/name_aisha_khan"
+                android:textColor="@color/text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:text="@string/chat_intro_sub"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:letterSpacing="0.05"
+                android:text="@string/chat_time_today"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Their messages: grey bubbles 2dp apart, small picture next to the last one (gravity bottom) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingEnd="48dp">
+
+                <TextView
+                    android:id="@+id/tv_chat_small_avatar_1"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginEnd="9dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_maroon"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:includeFontPadding="false"
+                    android:text="@string/initials_ak"
+                    android:textColor="@color/white"
+                    android:textSize="9sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_chat_bubble"
+                        android:backgroundTint="@color/pill_grey"
+                        android:paddingStart="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="14dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/chat_msg_1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/bg_chat_bubble"
+                        android:backgroundTint="@color/pill_grey"
+                        android:paddingStart="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="14dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/chat_msg_2"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:background="@drawable/bg_chat_bubble"
+                        android:backgroundTint="@color/pill_grey"
+                        android:paddingStart="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="14dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/chat_msg_3"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Your messages: teal bubbles on the right -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="48dp"
+                android:paddingEnd="13dp">
+
+                <TextView
+                    android:id="@+id/tv_chat_out_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/bg_chat_bubble"
+                    android:backgroundTint="@color/kinnect_teal"
+                    android:paddingStart="14dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/chat_msg_4"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <!--
+                    Bubble with a heart reaction on its bottom-left corner.
+                    RelativeLayout + negative margins let the heart hang off the corner;
+                    paddingBottom leaves room for it.
+                -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_chat_out_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/bg_chat_bubble"
+                        android:backgroundTint="@color/kinnect_teal"
+                        android:paddingStart="14dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="14dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/chat_msg_5"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <!-- Heart reaction: white circle with a small red circle and heart inside -->
+                    <RelativeLayout
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignStart="@id/tv_chat_out_2"
+                        android:layout_alignBottom="@id/tv_chat_out_2"
+                        android:layout_marginStart="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/white"
+                        android:elevation="1dp">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle"
+                            android:backgroundTint="@color/love_red"
+                            android:contentDescription="@string/reaction_love"
+                            android:padding="3dp"
+                            android:src="@drawable/ic_heart"
+                            app:tint="@color/white" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/chat_you_replied"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <!-- The message you replied to, sitting on top of your reply -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/bg_quote_bubble"
+                    android:backgroundTint="@color/pill_grey"
+                    android:gravity="center_vertical"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="13dp"
+                    android:text="@string/chat_msg_2"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_chat_out_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/bg_chat_bubble"
+                    android:backgroundTint="@color/kinnect_teal"
+                    android:paddingStart="14dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="8dp"
+                    android:text="@string/chat_msg_6"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <!-- Photo you sent: rounded corners (clipToOutline) -->
+                <ImageView
+                    android:id="@+id/iv_chat_photo"
+                    android:layout_width="200dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/bg_photo_rounded"
+                    android:clipToOutline="true"
+                    android:contentDescription="@string/cd_other_photo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/art_photo_dusk" />
+
+                <!-- Seen: tiny circle in their colour -->
+                <View
+                    android:id="@+id/v_chat_seen"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_maroon" />
+            </LinearLayout>
+
+            <!-- Typing: grey bubble with three dots, darkest first -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingStart="12dp">
+
+                <TextView
+                    android:id="@+id/tv_chat_small_avatar_2"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginEnd="9dp"
+                    android:background="@drawable/bg_circle"
+                    android:backgroundTint="@color/avatar_maroon"
+                    android:gravity="center"
+                    android:importantForAccessibility="no"
+                    android:includeFontPadding="false"
+                    android:text="@string/initials_ak"
+                    android:textColor="@color/white"
+                    android:textSize="9sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/ll_chat_typing"
+                    android:layout_width="56dp"
+                    android:layout_height="31dp"
+                    android:background="@drawable/bg_chat_bubble"
+                    android:backgroundTint="@color/pill_grey"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/text_muted" />
+
+                    <View
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/dash_grey" />
+
+                    <View
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@drawable/bg_circle"
+                        android:backgroundTint="@color/input_border" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Message bar: 4 teal icons, the "Aa" box (weight 1) and the like button -->
+    <LinearLayout
+        android:id="@+id/ll_chat_input_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="9dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/iv_chat_more"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:contentDescription="@string/cd_more_options"
+            android:padding="6dp"
+            android:src="@drawable/ic_add_circle"
+            app:tint="@color/kinnect_teal" />
+
+        <ImageView
+            android:id="@+id/iv_chat_camera"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:contentDescription="@string/cd_camera"
+            android:padding="6dp"
+            android:src="@drawable/ic_camera"
+            app:tint="@color/kinnect_teal" />
+
+        <ImageView
+            android:id="@+id/iv_chat_gallery"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:contentDescription="@string/cd_open_gallery"
+            android:padding="6dp"
+            android:src="@drawable/ic_photo"
+            app:tint="@color/kinnect_teal" />
+
+        <ImageView
+            android:id="@+id/iv_chat_mic"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:contentDescription="@string/cd_voice_clip"
+            android:padding="6dp"
+            android:src="@drawable/ic_mic"
+            app:tint="@color/kinnect_teal" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_pill"
+            android:backgroundTint="@color/pill_grey"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp">
+
+            <EditText
+                android:id="@+id/et_chat_message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/create_swatch_plain"
+                android:importantForAutofill="no"
+                android:inputType="textCapSentences"
+                android:padding="0dp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_secondary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/cd_emoji"
+                android:src="@drawable/ic_emoji"
+                app:tint="@color/kinnect_teal" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_chat_like"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@string/action_like"
+            android:padding="5dp"
+            android:src="@drawable/ic_like"
+            app:tint="@color/kinnect_teal" />
+    </LinearLayout>
+
+</LinearLayout>

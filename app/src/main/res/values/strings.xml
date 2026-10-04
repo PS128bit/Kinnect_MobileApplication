@@ -355,6 +355,42 @@
     <string name="also_from_smd">Also from SMD</string>
     <string name="log_out">Log out</string>
 
+    <!-- SCREEN 20: CHATS -->
+    <!-- Chats -->
+    <string name="chats_title">Chats</string>
+    <string name="cd_new_message">New message</string>
+    <string name="chats_your_note">Your note</string>
+    <string name="chats_first_aisha">Aisha</string>
+    <string name="chats_first_omar">Omar</string>
+    <string name="chats_first_sara">Sara</string>
+    <string name="chats_first_hamza">Hamza</string>
+    <string name="chats_design_crew">Design crew</string>
+    <string name="chats_msg_aisha">Sending the photos tonight · 2m</string>
+    <string name="chats_msg_design_crew">Maya: the new mockups look clean · 15m</string>
+    <string name="chats_msg_lina">You: See you at the pier · 1h</string>
+    <string name="chats_msg_omar">Haha that story was wild · 3h</string>
+    <string name="chats_msg_bilal">Thanks, bro! · Mon</string>
+    <string name="chats_msg_noor">You: Happy birthday! · Sun</string>
+    <string name="chats_tab_people">People</string>
+    <string name="chats_tab_stories">Stories</string>
+
+    <!-- SCREEN 21: CHAT -->
+    <!-- Chat -->
+    <string name="chat_active_now">Active now</string>
+    <string name="chat_intro_sub">You’re friends on Kinnect · Lives in Karachi</string>
+    <string name="chat_time_today">TODAY 4:49 PM</string>
+    <string name="chat_msg_1">Hey! Are you still coming Saturday?</string>
+    <string name="chat_msg_2">Lina booked the table for 8</string>
+    <string name="chat_msg_3">Bring the camera</string>
+    <string name="chat_msg_4">Yes, obviously</string>
+    <string name="chat_msg_5">Already charged both batteries</string>
+    <string name="chat_msg_6">Perfect, I’ll be there by 7:45</string>
+    <string name="chat_you_replied">You replied to Aisha</string>
+    <string name="cd_voice_call">Voice call</string>
+    <string name="cd_video_call">Video call</string>
+    <string name="cd_chat_info">Chat info</string>
+    <string name="cd_voice_clip">Voice clip</string>
+
     <!-- SCREEN 23: MARKETPLACE (This one is even more useless than Friends screen, like who even uses this instead of Amazon or Alibaba etc)-->
     <!-- 23 · Marketplace -->
     <string name="sell">Sell</string>

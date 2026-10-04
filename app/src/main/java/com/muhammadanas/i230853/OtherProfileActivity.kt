@@ -62,5 +62,15 @@ class OtherProfileActivity : AppCompatActivity() {
         findViewById<View>(R.id.ll_add_friend).setOnClickListener {
             tvAddFriend.setText(R.string.other_request_sent)
         }
+
+        // Message: open a chat with this person
+        findViewById<View>(R.id.ll_message).setOnClickListener {
+            val chat = Intent(this, ChatActivity::class.java)
+            chat.putExtra(ChatActivity.EXTRA_NAME, name)
+            chat.putExtra(ChatActivity.EXTRA_INITIALS, initials)
+            chat.putExtra(ChatActivity.EXTRA_AVATAR_COLOR, color)
+            startActivity(chat)
+        }
+
     }
 }

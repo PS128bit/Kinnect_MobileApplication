@@ -5,33 +5,32 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /*
-  Header and top tab bar shared by the main screens (Home, Friends, Marketplace, Notifications, Menu).
-  Every tab screen uses the same ids, so this one function wires them on any of them. Call it in onCreate after setContentView.
+  TabBar · shared top tab bar
+  Wires the 5 tabs and the header Search / Chats buttons on every tab screen.
  */
 object TabBar {
 
     fun setup(activity: AppCompatActivity, currentScreen: Class<*>) {
-        // The five tabs
         link(activity, currentScreen, R.id.tab_home, HomeActivity::class.java)
         link(activity, currentScreen, R.id.tab_friends, FriendsActivity::class.java)
         link(activity, currentScreen, R.id.tab_marketplace, MarketplaceActivity::class.java)
         link(activity, currentScreen, R.id.tab_notifications, NotificationsActivity::class.java)
         link(activity, currentScreen, R.id.tab_menu, MenuActivity::class.java)
 
-        // Header search button -> Search (a normal screen on top; Back returns here)
+        // Header buttons: Search and Chats
         activity.findViewById<View>(R.id.iv_header_search).setOnClickListener {
             activity.startActivity(Intent(activity, SearchActivity::class.java))
         }
+        activity.findViewById<View>(R.id.iv_header_chats).setOnClickListener {
+            activity.startActivity(Intent(activity, ChatsActivity::class.java))
+        }
     }
 
-    // Makes one tab open its screen
+    // Tapping a tab brings that screen to the front (no new copy); the current tab does nothing
     private fun link(activity: AppCompatActivity, currentScreen: Class<*>, tabId: Int, target: Class<*>) {
         activity.findViewById<View>(tabId).setOnClickListener {
-            // Tapping the tab you are already on does nothing
             if (target != currentScreen) {
                 val intent = Intent(activity, target)
-                // If that tab screen is already open, bring it to the front
-                // instead of creating a second copy of it
                 intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
                 activity.startActivity(intent)
             }
