@@ -76,7 +76,7 @@
 
         <!--
             Recent login card.
-            RelativeLayout (Lecture 03) lets the "2" badge overlap the avatar's
+            RelativeLayout lets the "2" badge overlap the avatar's
             top-right corner: alignTop + alignEnd on the avatar, then negative
             margins push it slightly outside. Declared after the avatar, so it draws on top.
         -->

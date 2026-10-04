@@ -9,9 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 /*
-  SCREEN 04 · Home feed
-  First main screen after logging in. Links to Comments, the Reaction picker
-  and the Story viewer; the top tabs switch to the other main screens.
+  SCREEN 03 · Sign up
+  New account form with gender options. Opened from Log in's Create new account.
  */
 class HomeActivity : AppCompatActivity() {
 

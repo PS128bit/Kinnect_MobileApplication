@@ -14,8 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 11 · Story viewer
-  Opened from a story card on Home. Home sends the person's details with putExtra,
-  so this one screen can show anyone's story. Close (X) returns to Home.
+  Full-screen story with progress bars and caption. Opened from a story card on Home.
  */
 class StoryViewerActivity : AppCompatActivity() {
 

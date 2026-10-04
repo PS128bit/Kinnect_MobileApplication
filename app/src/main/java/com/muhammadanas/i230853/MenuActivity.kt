@@ -10,7 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 19 · Menu
-  Profile shortcut, app shortcuts and Log out. Opened from the Menu tab.
+  Profile card, shortcuts, settings and Log out. Opened from the Menu tab.
  */
 class MenuActivity : AppCompatActivity() {
 

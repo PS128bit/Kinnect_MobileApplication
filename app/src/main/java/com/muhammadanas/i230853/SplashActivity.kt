@@ -10,8 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 01 · Splash
-  First screen of the app (launcher activity). Shows the Kinnect logo and
-  wordmark on teal. Opening Log in automatically is added in the next step in Stage 2 of Phase 1 my nigga.
+  Teal launch screen with the Kinnect logo. Opens Log in automatically after 2 seconds.
  */
 
 class SplashActivity : AppCompatActivity() {
@@ -22,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
     // Handler on the main (UI) thread, used to run code after the delay
     private val handler = Handler(Looper.getMainLooper())
 
-    // What happens when the delay ends: open Log in with an explicit Intent (Lecture 05),
+    // What happens when the delay ends: open Log in with an explicit Intent ,
     // then finish() Splash so pressing Back on Log in closes the app
     // instead of returning to the Splash screen.
     private val openLogin = Runnable {

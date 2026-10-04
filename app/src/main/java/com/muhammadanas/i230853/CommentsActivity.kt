@@ -9,7 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 06 · Comments
-  Comments on Lina's post, opened from "Comment" on Home. Back returns to Home.
+  Threaded comments with reactions and a reply bar. Opened from Comment on a Home post.
  */
 class CommentsActivity : AppCompatActivity() {
 

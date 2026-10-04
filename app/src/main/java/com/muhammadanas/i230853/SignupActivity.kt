@@ -15,8 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 03 · Sign up
-  - Back arrow and "Log in" link return to Log in.
-  - "Create account" opens Home.
+  New account form with gender options. Opened from Log in's Create new account.
  */
 class SignupActivity : AppCompatActivity() {
 

@@ -7,8 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 /*
-  18 · Notifications
-  New (unread) and earlier notifications. Opened from the Notifications tab.
+  SCREEN 18 · Notifications
+  Grouped notifications (New, Today, Earlier). Opened from the Notifications tab.
  */
 class NotificationsActivity : AppCompatActivity() {
 

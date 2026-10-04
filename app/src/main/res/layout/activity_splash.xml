@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     01 · Splash
-    RelativeLayout (Lecture 03):
+    RelativeLayout:
       - logo + wordmark group uses layout_centerInParent (centred on screen)
       - "from SMD" footer uses layout_alignParentBottom (pinned to the bottom)
 -->

@@ -9,11 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-/**
+/*
   SCREEN 02 · Log in
-  First screen after Splash.
-  - "Create new account" opens Sign up.
-  - "Log in" will open Home once Home is built in Stage 02 of Phase 02.
+  Recent account, email and password login, and Create new account. Opened from Splash and Log out.
  */
 class LoginActivity : AppCompatActivity() {
 

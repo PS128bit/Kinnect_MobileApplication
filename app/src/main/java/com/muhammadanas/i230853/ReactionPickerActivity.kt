@@ -9,8 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 05 · Reaction picker
-  Opened from "Like" on Home. Shows Lina's post dimmed, with the reaction faces on top.
-  Picking a face, tapping the dim area or the back arrow returns to Home.
+  Lina's post dimmed with the reaction faces on top. Opened from Like on a Home post.
  */
 class ReactionPickerActivity : AppCompatActivity() {
 

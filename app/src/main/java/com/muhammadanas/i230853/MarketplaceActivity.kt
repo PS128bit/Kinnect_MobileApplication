@@ -8,7 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 
 /*
   SCREEN 23 · Marketplace
-  Items for sale near the user. Opened from the Marketplace tab.
+  Category chips and items for sale in a grid. Opened from the Marketplace tab.
  */
 class MarketplaceActivity : AppCompatActivity() {
 
