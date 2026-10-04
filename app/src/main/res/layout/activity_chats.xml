@@ -700,7 +700,7 @@
                         android:backgroundTint="@color/avatar_green"
                         android:gravity="center"
                         android:importantForAccessibility="no"
-                        android:text="@string/initials_nf"
+                        android:text="@string/initials_a"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -718,7 +718,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-medium"
                             android:maxLines="1"
-                            android:text="@string/name_noor_fatima"
+                            android:text="@string/name_ammi"
                             android:textColor="@color/text_primary"
                             android:textSize="16sp" />
 
@@ -727,7 +727,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@string/chats_msg_noor"
+                            android:text="@string/chats_msg_ammi"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp" />
                     </LinearLayout>

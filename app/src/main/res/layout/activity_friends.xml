@@ -551,7 +551,7 @@
                     android:backgroundTint="@color/avatar_green"
                     android:gravity="center"
                     android:importantForAccessibility="no"
-                    android:text="@string/initials_nf"
+                    android:text="@string/initials_a"
                     android:textColor="@color/white"
                     android:textSize="26sp"
                     android:textStyle="bold" />
@@ -574,7 +574,7 @@
                     android:layout_toStartOf="@id/tv_request_time_3"
                     android:layout_toEndOf="@id/tv_request_avatar_3"
                     android:maxLines="1"
-                    android:text="@string/name_noor_fatima"
+                    android:text="@string/name_ammi"
                     android:textColor="@color/text_primary"
                     android:textSize="16sp"
                     android:textStyle="bold" />

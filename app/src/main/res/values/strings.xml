@@ -253,10 +253,10 @@
     <string name="delete">Delete</string>
     <string name="people_you_may_know">People you may know</string>
     <string name="initials_ba">BA</string>
-    <string name="initials_nf">NF</string>
+    <string name="initials_a">AM</string>
     <string name="initials_ds">DS</string>
     <string name="name_bilal_ahmed">Bilal Ahmed</string>
-    <string name="name_noor_fatima">Noor Fatima</string>
+    <string name="name_ammi">Ammi</string>
     <string name="name_daniyal_shah">Daniyal Shah</string>
     <string name="time_3d">3d</string>
     <string name="time_1w">1w</string>
@@ -370,7 +370,7 @@
     <string name="chats_msg_lina">You: See you at the pier · 1h</string>
     <string name="chats_msg_omar">Haha that story was wild · 3h</string>
     <string name="chats_msg_bilal">Thanks, bro! · Mon</string>
-    <string name="chats_msg_noor">You: Happy birthday! · Sun</string>
+    <string name="chats_msg_ammi">You: Happy birthday! · Sun</string>
     <string name="chats_tab_people">People</string>
     <string name="chats_tab_stories">Stories</string>
 
@@ -390,6 +390,17 @@
     <string name="cd_video_call">Video call</string>
     <string name="cd_chat_info">Chat info</string>
     <string name="cd_voice_clip">Voice clip</string>
+
+    <!-- SCREEN 22: VOICE CALL -->
+    <!-- Voice call -->
+    <string name="call_encrypted">End-to-end encrypted</string>
+    <string name="call_name_ammi">Ammi</string>
+    <string name="call_time_start">03:12</string>
+    <string name="initials_am">AM</string>
+    <string name="cd_captions">Captions</string>
+    <string name="cd_mute">Mute</string>
+    <string name="cd_end_call">End call</string>
+    <string name="cd_speaker">Speaker</string>
 
     <!-- SCREEN 23: MARKETPLACE (This one is even more useless than Friends screen, like who even uses this instead of Amazon or Alibaba etc)-->
     <!-- 23 · Marketplace -->

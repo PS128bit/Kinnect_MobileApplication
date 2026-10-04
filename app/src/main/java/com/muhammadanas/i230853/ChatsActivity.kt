@@ -32,11 +32,11 @@ class ChatsActivity : AppCompatActivity() {
         val rowIds = intArrayOf(R.id.ll_chat_1, R.id.ll_chat_2, R.id.ll_chat_3, R.id.ll_chat_4, R.id.ll_chat_5, R.id.ll_chat_6)
         val names = intArrayOf(
             R.string.name_aisha_khan, R.string.chats_design_crew, R.string.name_lina_marsh,
-            R.string.name_omar_farooq, R.string.name_bilal_ahmed, R.string.name_noor_fatima
+            R.string.name_omar_farooq, R.string.name_bilal_ahmed, R.string.call_name_ammi
         )
         val initials = intArrayOf(
             R.string.initials_ak, R.string.initials_dc, R.string.initials_lm,
-            R.string.initials_of, R.string.initials_ba, R.string.initials_nf
+            R.string.initials_of, R.string.initials_ba, R.string.initials_a
         )
         val colors = intArrayOf(
             R.color.avatar_maroon, R.color.avatar_olive, R.color.avatar_purple,

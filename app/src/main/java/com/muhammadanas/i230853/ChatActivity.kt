@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.content.Intent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -56,5 +57,14 @@ class ChatActivity : AppCompatActivity() {
 
         // Back arrow: return to Chats (or wherever we came from)
         findViewById<View>(R.id.iv_chat_back).setOnClickListener { finish() }
+
+        // Phone icon: start a voice call with this person
+        findViewById<View>(R.id.iv_chat_call).setOnClickListener {
+            val call = Intent(this, VoiceCallActivity::class.java)
+            call.putExtra(VoiceCallActivity.EXTRA_NAME, name)
+            call.putExtra(VoiceCallActivity.EXTRA_INITIALS, initials)
+            call.putExtra(VoiceCallActivity.EXTRA_AVATAR_COLOR, color)
+            startActivity(call)
+        }
     }
 }

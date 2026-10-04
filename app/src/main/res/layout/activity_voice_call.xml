@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    22 · Voice call
+    Teal screen: encryption note at the top, caller picture with soft rings,
+    name and timer in the middle, call controls at the bottom.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kinnect_teal"
+    android:orientation="vertical"
+    tools:context=".VoiceCallActivity">
+
+    <!-- "End-to-end encrypted" with a small lock -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"
+        android:alpha="0.85"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_lock"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:letterSpacing="0.05"
+            android:text="@string/call_encrypted"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!--
+        Caller picture: soft rings drawn by bg_call_rings (200dp),
+        with the purple rounded square in the middle (RelativeLayout centres it).
+    -->
+    <RelativeLayout
+        android:id="@+id/rl_call_avatar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="142dp"
+        android:background="@drawable/bg_call_rings">
+
+        <TextView
+            android:id="@+id/tv_call_avatar"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_call_tile"
+            android:backgroundTint="@color/avatar_purple"
+            android:gravity="center"
+            android:importantForAccessibility="no"
+            android:includeFontPadding="false"
+            android:text="@string/initials_am"
+            android:textColor="@color/white"
+            android:textSize="52sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Name with a small red heart badge -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_call_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/call_name_ammi"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_call_heart"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="11dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/love_red"
+            android:importantForAccessibility="no"
+            android:padding="4dp"
+            android:src="@drawable/ic_heart"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <!-- Call timer: counts up every second -->
+    <TextView
+        android:id="@+id/tv_call_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="7dp"
+        android:text="@string/call_time_start"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <!-- Empty space (layout_weight="1") pushes the controls to the bottom -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Controls: captions, mute, end call (red), speaker -->
+    <LinearLayout
+        android:id="@+id/ll_call_controls"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:layout_marginBottom="57dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="38dp">
+
+        <ImageView
+            android:id="@+id/iv_call_captions"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_call_button"
+            android:contentDescription="@string/cd_captions"
+            android:padding="16dp"
+            android:src="@drawable/ic_transcript"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_call_mute"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="22dp"
+            android:background="@drawable/bg_call_button"
+            android:contentDescription="@string/cd_mute"
+            android:padding="15dp"
+            android:src="@drawable/ic_mic"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_call_end"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_end_call"
+            android:contentDescription="@string/cd_end_call"
+            android:padding="22dp"
+            android:src="@drawable/ic_call_end"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_call_speaker"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_call_button"
+            android:contentDescription="@string/cd_speaker"
+            android:padding="15dp"
+            android:src="@drawable/ic_speaker"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>
