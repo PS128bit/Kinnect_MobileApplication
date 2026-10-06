@@ -1,6 +1,6 @@
 # Kinnect — Roadmap
 
-**Progress:** 20 of 23 screens done · Phases 0–5 complete · next: Phase 6 (Messaging)
+**Progress:** 23 of 23 screens done · Phases 0–7 and 9 complete 
 
 ## Navigation Flow
 
@@ -97,18 +97,18 @@ flowchart TD
 - [x] 12 Your story
 
 ### Phase 6 · Messaging
-- [ ] 20 Chats
-- [ ] 21 Chat
-- [ ] 22 Voice call
+- [x] 20 Chats
+- [x] 21 Chat
+- [x] 22 Voice call
 
 ### Phase 7 · Polish
-- [ ] Back stack and Log out
-- [ ] Landscape and tablet check
-- [ ] Code comments
+- [x] Back stack and Log out
+- [x] Landscape and tablet check
+- [x] Code comments
 
 ### Phase 8 · Tests
 - [ ] Espresso test 1
-- [ ] Espresso test 2 (multi-step path)
+- [ ] Espresso test 2 (multistep path)
 
 ### Phase 9 · Submission
 - [ ] Zip: full source code + XML/Kotlin-only folder
